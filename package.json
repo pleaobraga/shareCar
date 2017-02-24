@@ -1,0 +1,26 @@
+{
+  "name": "shared-car",
+  "version": "1.0.0",
+  "description": "project about share your parents cars with the family",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pleaobraga/shareCar.git"
+  },
+  "keywords": [
+    "shared",
+    "car",
+    "angular",
+    "material",
+    "design"
+  ],
+  "author": "pedro leao, amanda murta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pleaobraga/shareCar/issues"
+  },
+  "homepage": "https://github.com/pleaobraga/shareCar#readme"
+}
