@@ -22,5 +22,14 @@
   "bugs": {
     "url": "https://github.com/pleaobraga/shareCar/issues"
   },
-  "homepage": "https://github.com/pleaobraga/shareCar#readme"
+  "homepage": "https://github.com/pleaobraga/shareCar#readme",
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-animate": "^1.6.2",
+    "angular-aria": "^1.6.2",
+    "angular-material": "^1.1.3",
+    "angular-messages": "^1.6.2",
+    "angular-route": "^1.6.2",
+    "angular-sanitize": "^1.6.2"
+  }
 }
