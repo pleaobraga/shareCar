@@ -30,6 +30,7 @@
   shareCar.controller("loginCtrl", ['$scope', function($scope){
 
     $scope.isEmailExist = false;
+    $scope.senha = '';
 
     $scope.verifyEmail = function(email)
     {
@@ -37,22 +38,25 @@
 
       $scope.isEmailExist = true;
       $scope.name = 'Antônio Leão Braga';
-      $scope.loginForm.senha.$setPristine();
+      $scope.senha = '';
     };
 
     $scope.changeUser = function()
     {
-      $scope.email = '';
-      $scope.loginForm.$setPristine();
       $scope.isEmailExist = false;
+      $scope.senha = '';
+      $scope.loginForm2.$setUntouched(true);
+      $scope.loginForm2.$setPristine(true);
 
     };
 
     $scope.login = function()
     {
       //insert loginService
+      // $scope.isEmailExist = false;
+      $scope.isEmailExist = false;
 
-    }
+    };
 
 
 
@@ -63,47 +67,63 @@
 </head>
 <body ng-controller="loginCtrl">
 
-  <form name="loginForm" novalidate layout="column" layout-align="space-between center" layout-margin >
+  <form name="loginForm1" novalidate layout="column" layout-align="space-between center" layout-margin ng-show="!isEmailExist">
     <div class="marca" style="margin-top: 1%">Marca</div>
 
       <md-whiteframe  layout="column" layout-align="space-around none" class="md-whiteframe-4dp cardLogin" layout-padding>
 
-        <i ng-show="!isEmailExist" class="material-icons" style="font-size: 120px; color: #b6b6b6;">account_circle</i>
+        <i class="material-icons" style="font-size: 120px; color: #b6b6b6;">account_circle</i>
 
-        <div ng-show="isEmailExist"  layout="column" layout-align="center center">
+        <md-input-container >
+          <label>E-mail</label>
+          <input type="email" ng-model="email" name="email" ng-required="true" />
+          <div ng-messages="loginForm1.$submitted && loginForm1.email.$error " role="alert">
+            <div  ng-message="required">Digite seu email</div>
+            <div  ng-message="email">Entre com um endereço de email válido</div>
+          </div>
+        </md-input-container>
+
+        <md-button ng-click="loginForm1.$valid && verifyEmail(email)" type="submit">Continuar</md-button>
+
+      </md-whiteframe>
+
+      <p ng-click="test()" class="md-caption">
+        <span>Não possui conta?&nbsp&nbsp</span><span class="md-link">Criar Conta</span>
+      </p>
+
+  </form>
+
+  <form name="loginForm2" novalidate layout="column" layout-align="space-between center" layout-margin ng-show="isEmailExist">
+    <div class="marca" style="margin-top: 1%">Marca</div>
+
+      <md-whiteframe  layout="column" layout-align="space-around none" class="md-whiteframe-4dp cardLogin" layout-padding>
+
+        <div   layout="column" layout-align="center center">
           <img layout-margin src="images/foto1.png" />
           <span layout-margin class="md-body-2">{{name}}</span>
           <span class="md-caption">{{email}}</span>
         </div>
 
-        <md-input-container ng-show="!isEmailExist" >
-          <label>E-mail</label>
-          <input type="email" ng-model="email" name="email" ng-required="true" />
-          <div ng-messages="loginForm.email.$error" role="alert">
-            <div ng-message="required">Digite seu email</div>
-            <div ng-message="email">Entre com um endereço de email válido</div>
-          </div>
-        </md-input-container>
+        <md-input-container  >
 
-        <md-input-container  ng-show="isEmailExist" >
           <label>Senha</label>
-          <input type="text" ng-model="senha" name="senha" ng-required="true"/>
-          <div ng-messages="loginForm.senha.$error" role="alert">
+
+          <input type="password" ng-model="senha" name="senha" ng-required="true"/>
+
+          <div ng-messages="loginForm2.$submitted && loginForm2.senha.$error" role="alert">
             <div ng-message="required">Digite sua senha</div>
           </div>
         </md-input-container>
 
-        <md-button ng-click="loginForm.email.$valid && verifyEmail(email)" ng-show="!isEmailExist" type="submit">Continuar</md-button>
-        <md-button ng-click="loginForm.senha.$valid && login()" ng-show="isEmailExist" type="submit">Entrar</md-button>
+        <md-button ng-click="loginForm2.$valid && login()"  type="submit" >Entrar</md-button>
 
-        <p ng-show="isEmailExist" layout="row" layout-align="end end" class="md-caption md-link">
+        <p layout="row" layout-align="end end" class="md-caption md-link">
           Esqueci minha senha
         </p>
+
       </md-whiteframe>
-      <p ng-show="!isEmailExist" class="md-caption">
-        <span>Não possui conta?&nbsp&nbsp</span><span class="md-link">Criar Conta</span>
-      </p>
-      <p ng-show="isEmailExist" class="md-caption">
+
+      <p  class="md-caption">
         <span class="md-link" ng-click="changeUser()">Entrar como outro usuário</span>
       </p>
   </form>
