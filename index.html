@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
 
 
     <script src="node_modules/angular/angular.min.js"></script>
@@ -14,6 +17,73 @@
     <script src="node_modules/angular-messages/angular-messages.min.js"></script>
     <script src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="node_modules/angular-material/angular-material.min.js"></script>
+
+    <style>
+
+    html,body {
+      background: #e8dce1;
+    }
+
+    .marca {
+      height: 48px;
+      width: 176px;
+      text-align: center;
+      padding-top: 16px;
+      background-color: #c4c4c4;
+    }
+
+    md-whiteframe {
+      background-color: white;
+    }
+
+    .cardLogin {
+      padding: 1% 5%;
+      width: 29%;
+      margin-top: 4%;
+    }
+
+    .md-button {
+      color : #fff;
+      background-color: #009688;
+    }
+
+    .md-button:not([disabled]):hover {
+      background-color: rgba(0,150,136, 0.8);
+    }
+
+    .md-link{
+      color: #007098;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  text-align: center;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+    </style>
 
     <script>
 
@@ -30,18 +100,24 @@
   </head>
   <body ng-controller="shareCarCtrl">
 
-    <div layout="column" layout-align="space-between center" layout-margin-ver >
-      <md-button>Marca</md-button>
-      <md-whiteframe layout="column" layout-align="space-around">
+    <div layout="column" layout-align="space-between center" layout-margin >
+      <div class="marca" style="margin-top: 3%">Marca</div>
+      <md-whiteframe  layout="column" layout-align="space-around none" class="md-whiteframe-4dp cardLogin" layout-padding>
+
+        <i class="material-icons" style="font-size: 120px; color: #b6b6b6;">account_circle</i>
+
         <md-input-container >
           <label>E-mail</label>
           <input type="text" ng-model="nomeAlguem" />
         </md-input-container>
-        <md-button>Continuar</md-button>
-        <p layout="row" layout-align="end end">
+        <md-button >Continuar</md-button>
+        <p layout="row" layout-align="end end" class="md-caption md-link">
           Esqueci minha senha
         </p>
       </md-whiteframe>
+      <p class="md-caption">
+        <span>Não possui conta?&nbsp&nbsp</span><span class="md-link">Criar Conta</span>
+      </p>
 
     </div>
 
