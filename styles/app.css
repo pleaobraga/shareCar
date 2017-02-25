@@ -79,4 +79,6 @@ form[name = "addUserForm"]  p {
 
 .fullWidth {
   width: 100% !important;
+  margin-left: 0;
+  margin-right: 0;
 }
