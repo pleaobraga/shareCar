@@ -30,7 +30,7 @@
   shareCar.controller("loginCtrl", ['$scope', function($scope){
 
     $scope.isEmailExist = false;
-    $scope.addUser = true;
+    $scope.addUser = false;
     $scope.senha = '';
 
     $scope.verifyEmail = function(email)
@@ -42,10 +42,13 @@
       $scope.senha = '';
     };
 
-    $scope.changeUser = function()
+    $scope.backToLogin = function()
     {
+      $scope.addUser = false;
       $scope.isEmailExist = false;
       $scope.senha = '';
+      $scope.addUserForm.$setUntouched(true);
+      $scope.addUserForm.$setPristine(true);
       $scope.loginForm2.$setUntouched(true);
       $scope.loginForm2.$setPristine(true);
 
@@ -59,6 +62,20 @@
 
     };
 
+    $scope.pagAddUser = function()
+    {
+      $scope.addUser = true;
+    };
+
+    $scope.createAccount = function ()
+    {
+
+      //insert loginService
+      $scope.backToLogin();
+
+    }
+
+
 
 
   }]);
@@ -68,7 +85,7 @@
 </head>
 <body ng-controller="loginCtrl">
 
-  <!-- <form name="loginForm1" novalidate layout="column" layout-align="space-between center" layout-margin ng-show="!isEmailExist">
+  <form name="loginForm1" novalidate layout="column" layout-align="space-between center" layout-margin ng-show="!isEmailExist && !addUser">
     <div class="marca" style="margin-top: 1%">Marca</div>
 
       <md-whiteframe  layout="column" layout-align="space-around none" class="md-whiteframe-4dp cardLogin" layout-padding>
@@ -88,13 +105,13 @@
 
       </md-whiteframe>
 
-      <p ng-click="test()" class="md-caption">
+      <p ng-click="pagAddUser()" class="md-caption">
         <span>Não possui conta?&nbsp&nbsp</span><span class="md-link">Criar Conta</span>
       </p>
 
   </form>
 
-  <form name="loginForm2" novalidate layout="column" layout-align="space-between center" layout-margin ng-show="isEmailExist">
+  <form name="loginForm2" novalidate layout="column" layout-align="space-between center" layout-margin ng-show="isEmailExist && !addUser">
     <div class="marca" style="margin-top: 1%">Marca</div>
 
       <md-whiteframe  layout="column" layout-align="space-around none" class="md-whiteframe-4dp cardLogin" layout-padding>
@@ -125,9 +142,9 @@
       </md-whiteframe>
 
       <p  class="md-caption">
-        <span class="md-link" ng-click="changeUser()">Entrar como outro usuário</span>
+        <span class="md-link" ng-click="backToLogin()">Entrar como outro usuário</span>
       </p>
-  </form> -->
+  </form>
 
   <form name="addUserForm" novalidate  ng-show="addUser" layout="column" layout-align="space-between center">
 
@@ -193,9 +210,9 @@
           </div>
         </md-input-container>
 
-        <md-button class="fullWidth">Criar Conta</md-button>
+        <md-button class="fullWidth" ng-click="addUserForm.$valid createAccount()" type="submit">Criar Conta</md-button>
 
-        <md-button class="fullWidth">Cancelar</md-button>
+        <md-button class="fullWidth" ng-click="backToLogin()">Cancelar</md-button>
 
 
       </div>
