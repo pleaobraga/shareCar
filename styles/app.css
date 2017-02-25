@@ -2,6 +2,20 @@ html,body {
   background: #e8dce1;
 }
 
+md-input-container {
+  margin: 7px 0 !important;
+  width: 100%;
+}
+
+/*md-input-container:first-of-type: {
+  margin-top: 7px ;
+}*/
+
+md-input-container:only-of-type:first-of-type {
+  margin-top: 29px !important;
+}
+
+
 .md-button {
   color : #fff;
   background-color: #009688;
@@ -75,15 +89,6 @@ text-rendering: optimizeLegibility;
 font-feature-settings: 'liga';
 }
 
-form[name = "addUserForm"]  md-input-container {
-  margin: 7px 0 !important;
-  width: 100%;
-}
-
-form[name = "forgotPassForm"]  md-input-container {
-  margin: 7px 0 !important;
-  width: 100%;
-}
 
 form[name = "addUserForm"]  md-whiteframe {
   width: 47%;
