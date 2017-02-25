@@ -60,3 +60,23 @@ text-rendering: optimizeLegibility;
 /* Support for IE. */
 font-feature-settings: 'liga';
 }
+
+form[name = "addUserForm"]  md-input-container {
+  margin: 3px 0 !important;
+  width: 100%;
+}
+
+form[name = "addUserForm"]  md-whiteframe {
+  width: 47%;
+  padding: 3% 4% 3% 0%;
+  margin-top: 3%;
+
+}
+
+form[name = "addUserForm"]  p {
+  margin: 7px;
+}
+
+.fullWidth {
+  width: 100% !important;
+}
