@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="sharedCar">
+<html ng-app="shareCar">
   <head>
+    <title>Share Car</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
@@ -22,18 +23,27 @@
     shareCar.controller("shareCarCtrl", ['$scope', function($scope){
       $scope.nome = ['pedro', 'ana', 'joao', 'paulo'];
 
-    }])
+    }]);
 
     </script>
 
   </head>
   <body ng-controller="shareCarCtrl">
-    <div ng-repeat="n in nome">
-      <p>
-        {{n}}
-      </p>
-    </div>
 
+    <div layout="column" layout-align="space-between center" layout-margin-ver >
+      <md-button>Marca</md-button>
+      <md-whiteframe layout="column" layout-align="space-around">
+        <md-input-container >
+          <label>E-mail</label>
+          <input type="text" ng-model="nomeAlguem" />
+        </md-input-container>
+        <md-button>Continuar</md-button>
+        <p layout="row" layout-align="end end">
+          Esqueci minha senha
+        </p>
+      </md-whiteframe>
+
+    </div>
 
   </body>
 
