@@ -1,60 +1,113 @@
 <!DOCTYPE html>
 <html ng-app="shareCar">
-  <head>
-    <title>Share Car</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-    <link rel="stylesheet" type="text/css" href="styles/app.css">
+<head>
+
+  <title>Share Car</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+  <link rel="stylesheet" type="text/css" href="styles/app.css">
 
 
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="node_modules/angular-route/angular-route.min.js"></script>
-    <script src="node_modules/angular-aria/angular-aria.min.js"></script>
-    <script src="node_modules/angular-animate/angular-animate.min.js"></script>
-    <script src="node_modules/angular-messages/angular-messages.min.js"></script>
-    <script src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="node_modules/angular-material/angular-material.min.js"></script>
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="node_modules/angular-route/angular-route.min.js"></script>
+  <script src="node_modules/angular-aria/angular-aria.min.js"></script>
+  <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+  <script src="node_modules/angular-messages/angular-messages.min.js"></script>
+  <script src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="node_modules/angular-material/angular-material.min.js"></script>
 
-    <script>
+  <script>
 
-    var shareCar = angular.module("shareCar",['ngRoute','ngAria','ngAnimate','ngMessages','ngSanitize','ngMaterial']);
+  var shareCar = angular.module("shareCar",['ngRoute','ngAria','ngAnimate','ngMessages','ngSanitize','ngMaterial']);
 
 
-    shareCar.controller("shareCarCtrl", ['$scope', function($scope){
-      $scope.nome = ['pedro', 'ana', 'joao', 'paulo'];
+  shareCar.controller("loginCtrl", ['$scope', function($scope){
 
-    }]);
+    $scope.isEmailExist = false;
 
-    </script>
+    $scope.verifyEmail = function(email)
+    {
+      //insert loginService
 
-  </head>
-  <body ng-controller="shareCarCtrl">
+      $scope.isEmailExist = true;
+      $scope.name = 'Antônio Leão Braga';
+      $scope.loginForm.senha.$setPristine();
+    };
 
-    <div layout="column" layout-align="space-between center" layout-margin >
-      <div class="marca" style="margin-top: 3%">Marca</div>
+    $scope.changeUser = function()
+    {
+      $scope.email = '';
+      $scope.loginForm.$setPristine();
+      $scope.isEmailExist = false;
+
+    };
+
+    $scope.login = function()
+    {
+      //insert loginService
+
+    }
+
+
+
+  }]);
+
+  </script>
+
+</head>
+<body ng-controller="loginCtrl">
+
+  <form name="loginForm" novalidate layout="column" layout-align="space-between center" layout-margin >
+    <div class="marca" style="margin-top: 1%">Marca</div>
+
       <md-whiteframe  layout="column" layout-align="space-around none" class="md-whiteframe-4dp cardLogin" layout-padding>
 
-        <i class="material-icons" style="font-size: 120px; color: #b6b6b6;">account_circle</i>
+        <i ng-show="!isEmailExist" class="material-icons" style="font-size: 120px; color: #b6b6b6;">account_circle</i>
 
-        <md-input-container >
+        <div ng-show="isEmailExist"  layout="column" layout-align="center center">
+          <img layout-margin src="images/foto1.png" />
+          <span layout-margin class="md-body-2">{{name}}</span>
+          <span class="md-caption">{{email}}</span>
+        </div>
+
+        <md-input-container ng-show="!isEmailExist" >
           <label>E-mail</label>
-          <input type="text" ng-model="nomeAlguem" />
+          <input type="email" ng-model="email" name="email" ng-required="true" />
+          <div ng-messages="loginForm.email.$error" role="alert">
+            <div ng-message="required">Digite seu email</div>
+            <div ng-message="email">Entre com um endereço de email válido</div>
+          </div>
         </md-input-container>
-        <md-button >Continuar</md-button>
-        <p layout="row" layout-align="end end" class="md-caption md-link">
+
+        <md-input-container  ng-show="isEmailExist" >
+          <label>Senha</label>
+          <input type="text" ng-model="senha" name="senha" ng-required="true"/>
+          <div ng-messages="loginForm.senha.$error" role="alert">
+            <div ng-message="required">Digite sua senha</div>
+          </div>
+        </md-input-container>
+
+        <md-button ng-click="loginForm.email.$valid && verifyEmail(email)" ng-show="!isEmailExist" type="submit">Continuar</md-button>
+        <md-button ng-click="loginForm.senha.$valid && login()" ng-show="isEmailExist" type="submit">Entrar</md-button>
+
+        <p ng-show="isEmailExist" layout="row" layout-align="end end" class="md-caption md-link">
           Esqueci minha senha
         </p>
       </md-whiteframe>
-      <p class="md-caption">
+      <p ng-show="!isEmailExist" class="md-caption">
         <span>Não possui conta?&nbsp&nbsp</span><span class="md-link">Criar Conta</span>
       </p>
+      <p ng-show="isEmailExist" class="md-caption">
+        <span class="md-link" ng-click="changeUser()">Entrar como outro usuário</span>
+      </p>
+  </form>
 
-    </div>
-
-  </body>
+</body>
 
 </html>
