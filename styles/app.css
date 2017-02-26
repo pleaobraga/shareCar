@@ -106,3 +106,49 @@ form[name = "addUserForm"]  p {
   margin-left: 0;
   margin-right: 0;
 }
+
+@media screen and (min-width: 1281px) {
+
+  md-whiteframe .cardLogin{
+    padding: 1% 4%;
+    width: 26%;
+  }
+}
+
+
+
+@media screen and (max-width: 1280px) {
+
+  md-whiteframe .cardLogin {
+    width: 36% !important;
+  }
+
+
+
+
+}
+
+@media screen and (max-width: 960px) {
+
+  md-whiteframe .cardLogin {
+    width: 48% !important;
+  }
+
+  form[name = "addUserForm"] md-whiteframe {
+    padding: 3% 4% 2% 4% !important;
+  }
+
+}
+
+
+@media screen and (max-width: 600px) {
+
+  md-whiteframe {
+    width: 100% !important;
+  }
+
+  form[name = "addUserForm"] md-whiteframe {
+    padding: 3% 4% 2% 4% !important;
+  }
+
+}

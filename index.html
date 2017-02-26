@@ -198,9 +198,9 @@
 
     <div class="marca" style="margin-top: 1%">Marca</div>
 
-    <md-whiteframe class="md-whiteframe-4dp " layout="row" >
+    <md-whiteframe class="md-whiteframe-4dp "  layout-gt-sm="row" layout-xs="column" layout-sm="column" >
 
-      <div flex="40" layout="column" layout-align="start center">
+      <div flex="40" layout="column"  layout-align-gt-sm="start center" layout-align-xs="center center" layout-align-sm="center center">
 
           <i  class="material-icons" style="font-size: 120px; color: #b6b6b6;">account_circle</i>
 
@@ -217,7 +217,7 @@
 
       </div>
 
-      <div flex="60" layout="column" layout-align="space-around start">
+      <div flex="60" layout="column"  layout-align-gt-sm="start center" layout-align-xs="center center" layout-align-sm="center center">
         <md-input-container>
           <label>Nome</label>
           <input type="text" name="name" ng-model="name" required />
@@ -258,12 +258,16 @@
           </div>
         </md-input-container>
 
-        <md-button class="fullWidth" ng-click="addUserForm.$valid createAccount()" type="submit">Criar Conta</md-button>
+        <md-button hide-xs hide-sm class="fullWidth" ng-click="addUserForm.$valid createAccount()" type="submit">Criar Conta</md-button>
 
-        <md-button class="fullWidth" ng-click="backToLogin()">Cancelar</md-button>
+        <md-button hide-xs hide-sm class="fullWidth" ng-click="backToLogin()">Cancelar</md-button>
 
 
       </div>
+
+      <md-button hide-gt-sm class="fullWidth" ng-click="addUserForm.$valid createAccount()" type="submit">Criar Conta</md-button>
+
+      <md-button  hide-gt-sm class="fullWidth" ng-click="backToLogin()">Cancelar</md-button>
 
     </md-whiteframe>
 
