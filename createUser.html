@@ -1,0 +1,78 @@
+<form name="addUserForm" novalidate  layout="column" layout-align="space-between center">
+
+  <div class="marca" style="margin-top: 1%">Marca</div>
+
+  <md-whiteframe class="md-whiteframe-4dp "  layout-gt-sm="row" layout-xs="column" layout-sm="column" >
+
+    <div flex="40" layout="column"  layout-align-gt-sm="start center" layout-align-xs="center center" layout-align-sm="center center">
+
+        <i  class="material-icons" style="font-size: 120px; color: #b6b6b6;">account_circle</i>
+
+        <p  class="md-caption">
+          <span class="md-link">Adicionar Foto</span>
+        </p>
+
+        <p  class="md-caption">
+          <span class="md-link">Remover Foto</span>
+        </p>
+
+
+
+
+    </div>
+
+    <div flex="60" layout="column"  layout-align-gt-sm="start center" layout-align-xs="center center" layout-align-sm="center center">
+      <md-input-container>
+        <label>Nome</label>
+        <input type="text" name="name" ng-model="name" required />
+        <div ng-messages="addUserForm.$submitted && addUserForm.name.$error" role="alert">
+          <div ng-message="required">Digite seu nome</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Sobrenome</label>
+        <input type="text" name="lastName" ng-model="lastName" required />
+        <div ng-messages="addUserForm.$submitted && addUserForm.lastName.$error" role="alert">
+          <div ng-message="required">Digite seu sobenome</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container>
+        <label>E-mail</label>
+        <input type="email" name="email" ng-model="email" required />
+        <div ng-messages="addUserForm.$submitted && addUserForm.email.$error" role="alert">
+          <div ng-message="required">Digite seu email</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Senha</label>
+        <input type="password" name="password" ng-model="password" required />
+        <div ng-messages="addUserForm.$submitted && addUserForm.password.$error" role="alert">
+          <div ng-message="required">Digite sua senha</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Confirmar Senha</label>
+        <input type="password" name="confirmPassword" ng-model="confirmPassword" required />
+        <div ng-messages="addUserForm.$submitted && addUserForm.confirmPassword.$error" role="alert">
+          <div ng-message="required">Digite sua senha novamente</div>
+        </div>
+      </md-input-container>
+
+      <md-button hide-xs hide-sm class="fullWidth" ng-click="addUserForm.$valid createAccount()" type="submit">Criar Conta</md-button>
+
+      <md-button hide-xs hide-sm class="fullWidth" ng-click="backToLogin()">Cancelar</md-button>
+
+
+    </div>
+
+    <md-button hide-gt-sm class="fullWidth" ng-click="addUserForm.$valid createAccount()" type="submit">Criar Conta</md-button>
+
+    <md-button  hide-gt-sm class="fullWidth" ng-click="backToLogin()">Cancelar</md-button>
+
+  </md-whiteframe>
+
+</form>
