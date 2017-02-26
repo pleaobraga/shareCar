@@ -4,22 +4,6 @@ module.exports = function (grunt){
 
   grunt.initConfig({
 
-
-
-    // connect:
-    // {
-    //   server:
-    //   {
-    //     options:
-    //     {
-    //       hostname: 'localhost',
-    //       port: 9000,
-    //       keepalive: true,
-    //     }
-    //   }
-    // },
-    //}
-
     connect: {
       options: {
         middleware: function ( connect, options, middlewares ) {
@@ -34,9 +18,7 @@ module.exports = function (grunt){
         options: {
           hostname: '*',
           port: 8080,
-          keepalive: true,
-          base: "/home/pleao/Documentos/Estudos/Web/sharedCar",
-          directory: "/home/pleao/Documentos/Estudos/Web/sharedCar"
+          keepalive: true
         }
       }
     }

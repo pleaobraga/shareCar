@@ -9,19 +9,14 @@ shareCar.controller("loginCtrl", ['$scope', '$location', function($scope, $locat
   {
     //insert loginService
 
-    $scope.isEmailExist = true;
     $scope.name = 'Antônio Leão Braga';
     $scope.senha = '';
   };
 
   $scope.backToLogin = function()
   {
-    $scope.forgotPass = false;
-    $scope.addUser = false;
     $scope.isEmailExist = false;
     $scope.senha = '';
-    $scope.addUserForm.$setUntouched(true);
-    $scope.addUserForm.$setPristine(true);
     $scope.loginForm2.$setUntouched(true);
     $scope.loginForm2.$setPristine(true);
 

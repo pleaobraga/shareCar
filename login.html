@@ -1,4 +1,4 @@
-<form name="loginForm1" novalidate layout="column" layout-align="space-between center" layout-margin ng-show="!isEmailExist && !addUser">
+<form name="loginForm1" novalidate layout="column" layout-align="space-between center" layout-margin ng-show="!isEmailExist">
   <div class="marca" style="margin-top: 1%">Marca</div>
 
     <md-whiteframe  layout="column" layout-align="space-around none" class="md-whiteframe-4dp cardLogin" >
@@ -24,7 +24,7 @@
 
 </form>
 
-<form name="loginForm2" novalidate layout="column" layout-align="space-between center" layout-margin ng-show="!forgotPass && isEmailExist && !addUser">
+<form name="loginForm2" novalidate layout="column" layout-align="space-between center" layout-margin ng-show="isEmailExist">
   <div class="marca" style="margin-top: 1%">Marca</div>
 
     <md-whiteframe  layout="column" layout-align="space-around none" class="md-whiteframe-4dp cardLogin" >
@@ -57,37 +57,4 @@
     <p  class="md-caption">
       <span class="md-link" ng-click="backToLogin()">Entrar como outro usuário</span>
     </p>
-</form>
-
-<form name="forgotPassForm" novalidate layout="column" layout-align="space-between center" layout-margin ng-show="forgotPass && isEmailExist && !addUser">
-  <div class="marca" style="margin-top: 1%">Marca</div>
-
-    <md-whiteframe  layout="column" layout-align="space-around none" class="md-whiteframe-4dp cardLogin" >
-
-      <div   layout="column" layout-align="center center" style="margin-bottom: 18px;">
-        <span layout-margin class="md-title">Alterar Senha</span>
-        <span class="md-caption">{{email}}</span>
-      </div>
-
-      <md-input-container  >
-        <label>Senha</label>
-        <input type="password" ng-model="senha" name="senha" ng-required="true"/>
-        <div ng-messages="forgotPassForm.$submitted && forgotPassForm.senha.$error" role="alert">
-          <div ng-message="required">Digite sua senha</div>
-        </div>
-      </md-input-container>
-
-      <md-input-container  >
-        <label>Confirma Senha</label>
-        <input type="password" ng-model="confirmaSenha" name="confirmaSenha" ng-required="true"/>
-        <div ng-messages="forgotPassForm.$submitted && forgotPassForm.confirmaSenha.$error" role="alert">
-          <div ng-message="required">Digite sua confirmação de senha</div>
-        </div>
-      </md-input-container>
-
-      <md-button ng-click="forgotPassForm.$valid && newPass()"  type="submit" >Confirmar</md-button>
-      <md-button ng-click="backToLogin()" >Cancelar</md-button>
-
-    </md-whiteframe>
-
 </form>

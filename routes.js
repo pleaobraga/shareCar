@@ -8,6 +8,10 @@ shareCar.config(['$routeProvider','$locationProvider', function($routeProvider,$
     templateUrl: "createUser.html",
     controller: "createUserCtrl"
   });
+  $routeProvider.when("/forgotPassword", {
+    templateUrl: "forgotPassword.html",
+    controller: "forgotPasswordCtrl"
+  });
   $routeProvider.otherwise({redirectTo: "/login"});
 
   $locationProvider.html5Mode({
