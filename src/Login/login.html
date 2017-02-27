@@ -1,5 +1,5 @@
 <form name="loginForm1" novalidate layout="column" layout-align="space-between center" layout-margin ng-show="!$root.user.isEmailExist">
-  <div class="marca" style="margin-top: 1%">Marca</div>
+  <ng-include src="'html/marca.html'"></ng-include>
 
     <md-whiteframe  layout="column" layout-align="space-around none" class="md-whiteframe-4dp cardLogin" >
 
@@ -25,7 +25,7 @@
 </form>
 
 <form name="loginForm2" novalidate layout="column" layout-align="space-between center" layout-margin ng-show="$root.user.isEmailExist">
-  <div class="marca" style="margin-top: 1%">Marca</div>
+  <ng-include src="'html/marca.html'"></ng-include>
 
     <md-whiteframe  layout="column" layout-align="space-around none" class="md-whiteframe-4dp cardLogin" >
 

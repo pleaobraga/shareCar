@@ -58,20 +58,12 @@ form[name = "forgotPassForm"] .check-password, form[name = "loginForm2"] .check-
   z-index: 100;
 }
 
-/*form[name = "loginForm2"] .check-password {
-  position: relative;
-  top: 59px;
-  cursor: pointer;
-  z-index: 100;
-}*/
-
-
 
 .marca {
-  height: 48px;
+  height: 34px;
   width: 176px;
   text-align: center;
-  padding-top: 16px;
+  padding-top: 14px;
   background-color: #c4c4c4;
 }
 

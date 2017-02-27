@@ -2,7 +2,7 @@ shareCar.controller("loginCtrl", ['$scope', '$location', '$rootScope',function($
 
   if(angular.isUndefined($rootScope.user))
   {
-    $rootScope.user = {name: '', lastName: '', email: '', passWord: '', isEmailExist: false};
+    $rootScope.user = {name: '', lastName: '', email: '', passWord: '', groupName: '', isEmailExist: false};
   }
 
   $scope.verifyEmail = function(email)
@@ -32,11 +32,21 @@ shareCar.controller("loginCtrl", ['$scope', '$location', '$rootScope',function($
 
   };
 
+  $scope.verifyGroupName = function()
+  {
+    //service login
+    $location.path("/createUser/" + $rootScope.user.groupName);
+  }
+
   $scope.pagAddUser = function()
   {
     $location.path("/createUser");
-    //$scope.addUser = true;
   };
+
+  $scope.paddAddGroupUser = function()
+  {
+
+  }
 
   $scope.pagForgotPass = function ()
   {
