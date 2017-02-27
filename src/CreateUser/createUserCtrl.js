@@ -1,4 +1,6 @@
-shareCar.controller("createUserCtrl", ['$scope', '$location', function($scope, $location){
+shareCar.controller("createUserCtrl", ['$scope', '$location', function($scope, $location)
+{
+  $scope.confirmPassword = '';
 
   $scope.backToLogin = function()
   {

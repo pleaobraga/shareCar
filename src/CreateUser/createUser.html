@@ -44,35 +44,50 @@
         </div>
       </md-input-container>
 
+      <span class="no-heigth">
+        <span ng-mouseenter="showPass =  true" ng-mouseleave="showPass = false" class="check-password">
+          <i class="material-icons " >visibility</i>
+          <md-tooltip md-direction="top">Mostrar</md-tooltip>
+        </span>
+      </span>
 
-      <md-input-container>
+      <md-input-container ng-show="!showPass">
         <label>Senha</label>
         <input type="password" name="password" ng-model="$root.user.password" required />
-        <span>
-          <span class="check-password">
-            <i class="material-icons " >visibility</i>
-            <md-tooltip md-direction="top">Mostrar</md-tooltip>
-          </span>
-        </span>
         <div ng-messages="addUserForm.$submitted && addUserForm.password.$error" role="alert">
           <div ng-message="required">Digite sua senha</div>
         </div>
       </md-input-container>
 
-      <md-input-container>
-        <label>Confirmar Senha</label>
-        <input type="password" name="confirmPassword" ng-model="confirmPassword" required ng-match="$root.user.password" />
-        <span>
-          <span class="check-password">
-            <i class="material-icons " >visibility</i>
-            <md-tooltip md-direction="top">Mostrar</md-tooltip>
-          </span>
+      <md-input-container ng-show="showPass">
+        <label>Senha</label>
+        <input type="text" ng-model="$root.user.password"  />
+      </md-input-container>
+
+      <span class="no-heigth">
+        <span ng-mouseenter="showConfirmPass =  true" ng-mouseleave="showConfirmPass = false" class="check-password">
+          <i class="material-icons " >visibility</i>
+          <md-tooltip md-direction="top">Mostrar</md-tooltip>
         </span>
-        <div ng-messages="addUserForm.$submitted && addUserForm.confirmPassword.$error" role="alert">
+      </span>
+
+      <md-input-container ng-show="!showConfirmPass">
+        <label>Confirmar Senha</label>
+        <!-- <input type="password" name="confirmPassWord" ng-model="confirmPassWord" required ng-match="$root.user.password" /> -->
+        <input type="password" name="confirmPassWord" ng-model="confirmPassWord" required />
+        <div ng-messages="addUserForm.$submitted && addUserForm.confirmPassWord.$error" role="alert">
           <div ng-message="required">Digite sua senha novamente</div>
-          <div ng-message="match">A senha digitada não é a mesma</div>
+          <!-- <div ng-message="match">A senha digitada não é a mesma</div> -->
         </div>
       </md-input-container>
+
+
+      <md-input-container ng-show="showConfirmPass">
+        <label>Confirmar Senha</label>
+        <input type="text" ng-model="confirmPassWord"  />
+      </md-input-container>
+
+
 
       <md-button hide-xs hide-sm class="fullWidth" ng-click="addUserForm.$valid && createAccount()" type="submit">Criar Conta</md-button>
 

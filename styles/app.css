@@ -35,13 +35,37 @@ md-input-container:only-of-type:first-of-type {
   background-color: #CBCBCB ;
 }
 
-.check-password {
-  position: relative;
-  left: 90%;
-  bottom: 32px;
-  background-color: white;
-  cursor: pointer;
+.md-input-invalid .check-password{
+  bottom: 51px;
 }
+
+.no-heigth {
+  height: 0;
+}
+
+form[name = "addUserForm"] .check-password {
+  position: relative;
+  top: 12px;
+  left: 146px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+form[name = "forgotPassForm"] .check-password, form[name = "loginForm2"] .check-password {
+  position: relative;
+  top: 38px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+/*form[name = "loginForm2"] .check-password {
+  position: relative;
+  top: 59px;
+  cursor: pointer;
+  z-index: 100;
+}*/
+
+
 
 .marca {
   height: 48px;
@@ -130,7 +154,11 @@ form[name = "addUserForm"]  p {
 
   form[name = "addUserForm"] md-whiteframe {
     width: 400px;
-    padding: 3% 4% 2% 4% ;
+    padding: 3px 17px 8px 17px ;
+  }
+
+  form[name = "addUserForm"] .check-password i {
+    left: 170px;
   }
 
 }
@@ -142,10 +170,14 @@ form[name = "addUserForm"]  p {
     width: 330px;
   }
 
+  form[name = "addUserForm"] .check-password i {
+    left: 170px;
+  }
+
   form[name = "addUserForm"] md-whiteframe {
     max-width: 400px !important;
     width: 100%;
-    padding: 3% 4% 2% 4% ;
+    padding: 13px 17px 8px 17px ;
   }
 
 }

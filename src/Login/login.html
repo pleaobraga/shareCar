@@ -35,16 +35,24 @@
         <span class="md-caption">{{$root.user.email}}</span>
       </div>
 
-      <md-input-container  >
+      <span  layout="row" layout-align="end end">
+        <span ng-mouseenter="showPass =  true" ng-mouseleave="showPass = false" class="check-password" layout="row" layout-align="end end">
+          <i class="material-icons " >visibility</i>
+          <md-tooltip md-direction="top">Mostrar</md-tooltip>
+        </span>
+      </span>
 
+      <md-input-container ng-show="!showPass" >
         <label>Senha</label>
-
         <input type="password" ng-model="$root.user.passWord" name="passWord" ng-required="true"/>
-        <i class="material-icons check-password" >visibility</i>
-
         <div ng-messages="loginForm2.$submitted && loginForm2.passWord.$error" role="alert">
           <div ng-message="required">Digite sua senha</div>
         </div>
+      </md-input-container>
+
+      <md-input-container  ng-show="showPass">
+        <label>Senha</label>
+        <input type="text" ng-model="$root.user.passWord"/>
       </md-input-container>
 
       <md-button ng-click="loginForm2.$valid && login()"  type="submit" >Entrar</md-button>
