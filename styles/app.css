@@ -7,9 +7,6 @@ md-input-container {
   width: 100%;
 }
 
-/*md-input-container:first-of-type: {
-  margin-top: 7px ;
-}*/
 
 md-input-container:only-of-type:first-of-type {
   margin-top: 29px !important;

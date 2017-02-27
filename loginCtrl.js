@@ -1,9 +1,7 @@
 shareCar.controller("loginCtrl", ['$scope', '$location', function($scope, $location){
 
   $scope.isEmailExist = false;
-  $scope.addUser = false;
   $scope.senha = '';
-  $scope.forgotPass = false;
 
   $scope.verifyEmail = function(email)
   {
@@ -11,6 +9,7 @@ shareCar.controller("loginCtrl", ['$scope', '$location', function($scope, $locat
 
     $scope.name = 'Antônio Leão Braga';
     $scope.senha = '';
+    $scope.isEmailExist = true;
   };
 
   $scope.backToLogin = function()
@@ -36,27 +35,11 @@ shareCar.controller("loginCtrl", ['$scope', '$location', function($scope, $locat
     //$scope.addUser = true;
   };
 
-  $scope.createAccount = function ()
-  {
-
-    //insert loginService
-    $scope.backToLogin();
-
-  };
-
   $scope.pagForgotPass = function ()
   {
-    $scope.forgotPass = true;
+    $location.path("/forgotPassword")
 
   };
-
-  $scope.newPass = function ()
-  {
-    //insert loginService
-  };
-
-
-
 
 
 
