@@ -40,6 +40,7 @@
         <label>Senha</label>
 
         <input type="password" ng-model="$root.user.passWord" name="passWord" ng-required="true"/>
+        <i class="material-icons check-password" >visibility</i>
 
         <div ng-messages="loginForm2.$submitted && loginForm2.passWord.$error" role="alert">
           <div ng-message="required">Digite sua senha</div>

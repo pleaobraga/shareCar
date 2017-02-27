@@ -12,6 +12,10 @@ md-input-container:only-of-type:first-of-type {
   margin-top: 29px !important;
 }
 
+.material-icons{
+  color: #009688;
+}
+
 
 .md-button {
   color : #fff;
@@ -31,6 +35,14 @@ md-input-container:only-of-type:first-of-type {
   background-color: #CBCBCB ;
 }
 
+.check-password {
+  position: relative;
+  left: 90%;
+  bottom: 32px;
+  background-color: white;
+  cursor: pointer;
+}
+
 .marca {
   height: 48px;
   width: 176px;
@@ -44,9 +56,9 @@ md-whiteframe {
 }
 
 .cardLogin {
-  padding: 1% 5%;
-  width: 29%;
-  margin-top: 3%;
+  padding: 12px 39px;
+  width: 330px;
+  margin-top: 39px;
 }
 
 
@@ -88,10 +100,9 @@ font-feature-settings: 'liga';
 
 
 form[name = "addUserForm"]  md-whiteframe {
-  width: 47%;
+  width: 695px;
   padding: 3% 4% 1% 0%;
   margin-top: 3%;
-
 }
 
 form[name = "addUserForm"]  p {
@@ -106,33 +117,20 @@ form[name = "addUserForm"]  p {
 
 @media screen and (min-width: 1281px) {
 
-  md-whiteframe .cardLogin{
-    padding: 1% 4%;
-    width: 26%;
-  }
 }
 
 
 
 @media screen and (max-width: 1280px) {
 
-  md-whiteframe .cardLogin {
-    width: 36% !important;
-  }
-
-
-
-
 }
 
 @media screen and (max-width: 960px) {
 
-  md-whiteframe .cardLogin {
-    width: 48% !important;
-  }
 
   form[name = "addUserForm"] md-whiteframe {
-    padding: 3% 4% 2% 4% !important;
+    width: 400px;
+    padding: 3% 4% 2% 4% ;
   }
 
 }
@@ -141,11 +139,13 @@ form[name = "addUserForm"]  p {
 @media screen and (max-width: 600px) {
 
   md-whiteframe {
-    width: 100% !important;
+    width: 330px;
   }
 
   form[name = "addUserForm"] md-whiteframe {
-    padding: 3% 4% 2% 4% !important;
+    max-width: 400px !important;
+    width: 100%;
+    padding: 3% 4% 2% 4% ;
   }
 
 }

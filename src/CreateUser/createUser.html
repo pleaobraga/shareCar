@@ -1,4 +1,4 @@
-<form name="addUserForm" novalidate  layout="column" layout-align="space-between center">
+<form name="addUserForm" novalidate  layout="column" layout-align="space-between center" layout-margin>
 
   <div class="marca" style="margin-top: 1%">Marca</div>
 
@@ -40,12 +40,20 @@
         <input type="email" name="email" ng-model="$root.user.email" required />
         <div ng-messages="addUserForm.$submitted && addUserForm.email.$error" role="alert">
           <div ng-message="required">Digite seu email</div>
+          <div  ng-message="email">Digite um endereço de email válido</div>
         </div>
       </md-input-container>
+
 
       <md-input-container>
         <label>Senha</label>
         <input type="password" name="password" ng-model="$root.user.password" required />
+        <span>
+          <span class="check-password">
+            <i class="material-icons " >visibility</i>
+            <md-tooltip md-direction="top">Mostrar</md-tooltip>
+          </span>
+        </span>
         <div ng-messages="addUserForm.$submitted && addUserForm.password.$error" role="alert">
           <div ng-message="required">Digite sua senha</div>
         </div>
@@ -54,6 +62,12 @@
       <md-input-container>
         <label>Confirmar Senha</label>
         <input type="password" name="confirmPassword" ng-model="confirmPassword" required ng-match="$root.user.password" />
+        <span>
+          <span class="check-password">
+            <i class="material-icons " >visibility</i>
+            <md-tooltip md-direction="top">Mostrar</md-tooltip>
+          </span>
+        </span>
         <div ng-messages="addUserForm.$submitted && addUserForm.confirmPassword.$error" role="alert">
           <div ng-message="required">Digite sua senha novamente</div>
           <div ng-message="match">A senha digitada não é a mesma</div>
