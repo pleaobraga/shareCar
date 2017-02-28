@@ -1,6 +1,6 @@
 shareCar.controller("forgotPasswordCtrl", ['$scope', '$location', function($scope, $location){
 
-  $scope.ChangedPassword = true;
+  $scope.ChangedPassword = false;
 
   $scope.login = function()
   {
