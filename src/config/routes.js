@@ -8,16 +8,18 @@ shareCar.config(['$routeProvider','$locationProvider', function($routeProvider,$
     templateUrl: "src/CreateUser/createUser.html",
     controller: "createUserCtrl"
   });
+  $routeProvider.when("/createUser/:id", {
+    templateUrl: "src/CreateUser/createUser.html",
+    controller: "createUserCtrl"
+  });
   $routeProvider.when("/forgotPassword", {
     templateUrl: "src/ForgotPassword/forgotPassword.html",
     controller: "forgotPasswordCtrl"
   });
-  $routeProvider.otherwise({redirectTo: "/login"});
+  $routeProvider.otherwise({redirectTo: "#/login"});
 
-  $locationProvider.html5Mode({
-    enabled: true,
-    requireBase: false
-  });
+  $locationProvider.html5Mode(true);
+  $locationProvider.hashPrefix('!');
 
 
 }]);
