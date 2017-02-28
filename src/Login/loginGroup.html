@@ -1,0 +1,25 @@
+<form name="loginGroupForm" novalidate layout="column" layout-align="space-between center" layout-margin>
+  <ng-include src="'html/marca.html'"></ng-include>
+
+    <md-whiteframe  layout="column" layout-align="space-around none" class="md-whiteframe-4dp cardLogin" >
+
+      <div   layout="column" layout-align="center center" style="margin-bottom: 18px;">
+        <span layout-margin class="md-title">Nome do Grupo</span>
+      </div>
+
+      <p class="md-body-1" layout-magin-vert style="text-align: justify;">
+        Antes de criar sua conta, informe o nome do grupo que você recebeu o convite.
+      </p>
+
+      <md-input-container >
+        <label>Nome do Grupo</label>
+        <input type="text" ng-model="$root.user.groupName" name="groupName" ng-required="true" />
+        <div ng-messages="loginGroupForm.$submitted && loginGroupForm.groupName.$error " role="alert">
+          <div  ng-message="required">Digite o nome do Grupo</div>
+        </div>
+      </md-input-container>
+
+      <md-button ng-click="loginGroupForm.$valid && verifyGroupName()" type="submit">Continuar</md-button>
+
+    </md-whiteframe>
+</form>
