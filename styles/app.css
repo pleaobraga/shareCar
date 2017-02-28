@@ -45,7 +45,7 @@ md-input-container:only-of-type:first-of-type {
 
 form[name = "addUserForm"] .check-password {
   position: relative;
-  top: 12px;
+  top: 26px;
   left: 146px;
   cursor: pointer;
   z-index: 100;
@@ -146,12 +146,13 @@ form[name = "addUserForm"]  p {
 
   form[name = "addUserForm"] md-whiteframe {
     width: 400px;
-    padding: 3px 17px 8px 17px ;
+    padding: 3px 32px 8px 32px !important;
   }
 
-  form[name = "addUserForm"] .check-password i {
-    left: 170px;
+  form[name = "addUserForm"] .check-password {
+    left: 0;
   }
+
 
 }
 
@@ -159,17 +160,16 @@ form[name = "addUserForm"]  p {
 @media screen and (max-width: 600px) {
 
   md-whiteframe {
-    width: 330px;
+    width: 330px !important;
   }
 
-  form[name = "addUserForm"] .check-password i {
-    left: 170px;
-  }
 
   form[name = "addUserForm"] md-whiteframe {
-    max-width: 400px !important;
-    width: 100%;
-    padding: 13px 17px 8px 17px ;
+    padding: 13px 19px 8px 19px !important;
+  }
+
+  form[name = "addUserForm"] .check-password {
+    left: 0;
   }
 
 }

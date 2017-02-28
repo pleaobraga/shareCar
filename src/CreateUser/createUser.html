@@ -4,7 +4,7 @@
 
   <md-whiteframe class="md-whiteframe-4dp "  layout-gt-sm="row" layout-xs="column" layout-sm="column" >
 
-    <div flex="40" layout="column"  layout-align-gt-sm="start center" layout-align-xs="center center" layout-align-sm="center center">
+    <div flex-gt-sm=="40" layout="column"  layout-align-gt-sm="start center" layout-align-xs="center center" layout-align-sm="center center" style="margin-bottom: 17px;">
 
         <i  class="material-icons" style="font-size: 120px; color: #b6b6b6;">account_circle</i>
 
@@ -18,7 +18,7 @@
 
     </div>
 
-    <div flex="60" layout="column"  layout-align-gt-sm="start center" layout-align-xs="center center" layout-align-sm="center center">
+    <div flex-gt-sm=="60" layout="column"  layout-align-gt-sm="start center">
       <md-input-container>
         <label>Nome</label>
         <input type="text" name="name" ng-model="$root.user.name" required />
@@ -44,7 +44,7 @@
         </div>
       </md-input-container>
 
-      <span class="no-heigth">
+      <span class="no-heigth" layout="row" layout-align="end center">
         <span ng-mouseenter="showPass =  true" ng-mouseleave="showPass = false" class="check-password">
           <i class="material-icons " >visibility</i>
           <md-tooltip md-direction="top">Mostrar</md-tooltip>
@@ -64,7 +64,7 @@
         <input type="text" ng-model="$root.user.password"  />
       </md-input-container>
 
-      <span class="no-heigth">
+      <span class="no-heigth" layout="row" layout-align="end center">
         <span ng-mouseenter="showConfirmPass =  true" ng-mouseleave="showConfirmPass = false" class="check-password">
           <i class="material-icons " >visibility</i>
           <md-tooltip md-direction="top">Mostrar</md-tooltip>
