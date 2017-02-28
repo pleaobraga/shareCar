@@ -18,7 +18,12 @@ module.exports = function (grunt){
         options: {
           hostname: '*',
           port: 8080,
-          keepalive: true
+          keepalive: true,
+          open:
+          {
+            target: 'http://localhost:8080', // target url to open
+            chrome: 'open', // name of the app that opens, ie: open, start, xdg-open
+          }
         }
       }
     }
