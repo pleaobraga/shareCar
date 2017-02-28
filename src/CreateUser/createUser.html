@@ -2,9 +2,40 @@
 
   <ng-include src="'html/marca.html'"></ng-include>
 
-  <md-whiteframe class="md-whiteframe-4dp "  layout-gt-sm="row" layout-xs="column" layout-sm="column" >
+  <md-whiteframe md-whiteframe class="md-whiteframe-4dp" layout="column" >
 
-    <div flex-gt-sm=="40" layout="column"  layout-align-gt-sm="start center" layout-align-xs="center center" layout-align-sm="center center" style="margin-bottom: 17px;">
+    <div ng-if="!hasGroup()" layout="column" layout-align="center center" style="margin-bottom: 18px;">
+      <p class="md-title" >
+        Cadastro de Usuário
+      </p>
+    </div>
+
+    <div ng-if="hasGroup()" layout="column" layout-align="center center" style="margin-bottom: 18px;">
+      <p class="md-title" style="text-align: center;" >
+        {{"Cadastro no Grupo " + group}}
+      </p>
+
+      <!-- <div layout-gt-sm="row" layout-xs="column" layout-sm="column" layout-align-gt-sm="space-between center" layout-align-xs="center center" layout-align-sm="center center" style="margin-bottom: 18px;">
+        <div layout="row" layout-align="space-around center">
+          <i  class="material-icons" style="color: #727272;">directions_car</i>
+          <span>{{"Grupo " + group }}</span>
+        </div>
+        <div layout="row" layout-align="space-around center">
+          <i  class="material-icons" style="color: #727272;">account_circle</i>
+          <span>{{integrantes + "Integrantes"}}</span>
+        </div>
+      </div> -->
+
+    </div>
+
+
+
+
+    <div  layout-gt-sm="row" layout-xs="column" layout-sm="column" >
+
+
+
+      <div flex-gt-sm=="40" layout="column"  layout-align-gt-sm="start center" layout-align-xs="center center" layout-align-sm="center center" style="margin-bottom: 17px;">
 
         <i  class="material-icons" style="font-size: 120px; color: #b6b6b6;">account_circle</i>
 
@@ -16,90 +47,96 @@
           <span class="md-link">Remover Foto</span>
         </p>
 
-    </div>
+      </div>
 
-    <div flex-gt-sm=="60" layout="column"  layout-align-gt-sm="start center">
-      <md-input-container>
-        <label>Nome</label>
-        <input type="text" name="name" ng-model="$root.user.name" required />
-        <div ng-messages="addUserForm.$submitted && addUserForm.name.$error" role="alert">
-          <div ng-message="required">Digite seu nome</div>
-        </div>
-      </md-input-container>
+      <div flex-gt-sm=="60" layout="column"  layout-align-gt-sm="start center">
+        <md-input-container>
+          <label>Nome</label>
+          <input type="text" name="name" ng-model="$root.user.name" required />
+          <div ng-messages="addUserForm.$submitted && addUserForm.name.$error" role="alert">
+            <div ng-message="required">Digite seu nome</div>
+          </div>
+        </md-input-container>
 
-      <md-input-container>
-        <label>Sobrenome</label>
-        <input type="text" name="lastName" ng-model="$root.user.lastName" required />
-        <div ng-messages="addUserForm.$submitted && addUserForm.lastName.$error" role="alert">
-          <div ng-message="required">Digite seu sobenome</div>
-        </div>
-      </md-input-container>
+        <md-input-container>
+          <label>Sobrenome</label>
+          <input type="text" name="lastName" ng-model="$root.user.lastName" required />
+          <div ng-messages="addUserForm.$submitted && addUserForm.lastName.$error" role="alert">
+            <div ng-message="required">Digite seu sobenome</div>
+          </div>
+        </md-input-container>
 
-      <md-input-container>
-        <label>E-mail</label>
-        <input type="email" name="email" ng-model="$root.user.email" required />
-        <div ng-messages="addUserForm.$submitted && addUserForm.email.$error" role="alert">
-          <div ng-message="required">Digite seu email</div>
-          <div  ng-message="email">Digite um endereço de email válido</div>
-        </div>
-      </md-input-container>
+        <md-input-container>
+          <label>E-mail</label>
+          <input type="email" name="email" ng-model="$root.user.email" required />
+          <div ng-messages="addUserForm.$submitted && addUserForm.email.$error" role="alert">
+            <div ng-message="required">Digite seu email</div>
+            <div  ng-message="email">Digite um endereço de email válido</div>
+          </div>
+        </md-input-container>
 
-      <span class="no-heigth" layout="row" layout-align="end center">
-        <span ng-mouseenter="showPass =  true" ng-mouseleave="showPass = false" class="check-password">
-          <i class="material-icons " >visibility</i>
-          <md-tooltip md-direction="top">Mostrar</md-tooltip>
+        <span class="no-heigth" layout="row" layout-align="end center">
+          <span ng-mouseenter="showPass =  true" ng-mouseleave="showPass = false" class="check-password">
+            <i class="material-icons " >visibility</i>
+            <md-tooltip md-direction="top">Mostrar</md-tooltip>
+          </span>
         </span>
-      </span>
 
-      <md-input-container ng-show="!showPass">
-        <label>Senha</label>
-        <input type="password" name="password" ng-model="$root.user.password" required />
-        <div ng-messages="addUserForm.$submitted && addUserForm.password.$error" role="alert">
-          <div ng-message="required">Digite sua senha</div>
-        </div>
-      </md-input-container>
+        <md-input-container ng-show="!showPass">
+          <label>Senha</label>
+          <input type="password" name="password" ng-model="$root.user.password" required />
+          <div ng-messages="addUserForm.$submitted && addUserForm.password.$error" role="alert">
+            <div ng-message="required">Digite sua senha</div>
+          </div>
+        </md-input-container>
 
-      <md-input-container ng-show="showPass">
-        <label>Senha</label>
-        <input type="text" ng-model="$root.user.password"  />
-      </md-input-container>
+        <md-input-container ng-show="showPass">
+          <label>Senha</label>
+          <input type="text" ng-model="$root.user.password"  />
+        </md-input-container>
 
-      <span class="no-heigth" layout="row" layout-align="end center">
-        <span ng-mouseenter="showConfirmPass =  true" ng-mouseleave="showConfirmPass = false" class="check-password">
-          <i class="material-icons " >visibility</i>
-          <md-tooltip md-direction="top">Mostrar</md-tooltip>
+        <span class="no-heigth" layout="row" layout-align="end center">
+          <span ng-mouseenter="showConfirmPass =  true" ng-mouseleave="showConfirmPass = false" class="check-password">
+            <i class="material-icons " >visibility</i>
+            <md-tooltip md-direction="top">Mostrar</md-tooltip>
+          </span>
         </span>
-      </span>
 
-      <md-input-container ng-show="!showConfirmPass">
-        <label>Confirmar Senha</label>
-        <!-- <input type="password" name="confirmPassWord" ng-model="confirmPassWord" required ng-match="$root.user.password" /> -->
-        <input type="password" name="confirmPassWord" ng-model="confirmPassWord" required />
-        <div ng-messages="addUserForm.$submitted && addUserForm.confirmPassWord.$error" role="alert">
-          <div ng-message="required">Digite sua senha novamente</div>
-          <!-- <div ng-message="match">A senha digitada não é a mesma</div> -->
-        </div>
-      </md-input-container>
-
-
-      <md-input-container ng-show="showConfirmPass">
-        <label>Confirmar Senha</label>
-        <input type="text" ng-model="confirmPassWord"  />
-      </md-input-container>
+        <md-input-container ng-show="!showConfirmPass">
+          <label>Confirmar Senha</label>
+          <!-- <input type="password" name="confirmPassWord" ng-model="confirmPassWord" required ng-match="$root.user.password" /> -->
+          <input type="password" name="confirmPassWord" ng-model="confirmPassWord" required />
+          <div ng-messages="addUserForm.$submitted && addUserForm.confirmPassWord.$error" role="alert">
+            <div ng-message="required">Digite sua senha novamente</div>
+            <!-- <div ng-message="match">A senha digitada não é a mesma</div> -->
+          </div>
+        </md-input-container>
 
 
+        <md-input-container ng-show="showConfirmPass">
+          <label>Confirmar Senha</label>
+          <input type="text" ng-model="confirmPassWord"  />
+        </md-input-container>
 
-      <md-button hide-xs hide-sm class="fullWidth" ng-click="addUserForm.$valid && createAccount()" type="submit">Criar Conta</md-button>
-
-      <md-button hide-xs hide-sm class="fullWidth" ng-click="backToLogin()">Cancelar</md-button>
 
 
-    </div>
+        <md-button hide-xs hide-sm class="fullWidth" ng-click="addUserForm.$valid && createAccount()" type="submit">Criar Conta</md-button>
 
-    <md-button hide-gt-sm class="fullWidth" ng-click="addUserForm.$valid && createAccount()" type="submit">Criar Conta</md-button>
+        <md-button hide-xs hide-sm class="fullWidth" ng-click="backToLogin()">Cancelar</md-button>
 
-    <md-button  hide-gt-sm class="fullWidth" ng-click="backToLogin()">Cancelar</md-button>
 
-  </md-whiteframe>
+      </div>
 
-</form>
+      <div>
+
+        <md-button hide-gt-sm class="fullWidth" ng-click="addUserForm.$valid && createAccount()" type="submit">Criar Conta</md-button>
+
+        <md-button  hide-gt-sm class="fullWidth" ng-click="backToLogin()">Cancelar</md-button>
+
+
+
+      </div>
+
+    </md-whiteframe>
+
+  </form>
