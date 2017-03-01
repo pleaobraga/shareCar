@@ -12,6 +12,17 @@ md-input-container:only-of-type:first-of-type {
   margin-top: 29px !important;
 }
 
+.inverted-button {
+  text-align: right;
+  background-color: white !important;
+  color: #009688 !important;
+  width: auto !important;
+}
+
+.group-user-image{
+  margin-top: -65px;
+}
+
 .users {
     margin: 10px 275px;
 }
@@ -55,7 +66,6 @@ md-input-container:only-of-type:first-of-type {
 
 .title-menu-top {
   color: white;
-  /*text-transform: uppercase;*/
 }
 
 .menu-top i  {
@@ -65,6 +75,7 @@ md-input-container:only-of-type:first-of-type {
 .menu-top a {
   margin-right: 7% !important;
   color: #5C6169;
+  font-size: 12px;
 }
 
 .botao-menu > a {
