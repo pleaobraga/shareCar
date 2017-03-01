@@ -1,7 +1,8 @@
 shareCar.config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider)
 {
   $routeProvider.when("/login", {
-    templateUrl: "src/Login/login.html",
+    //templateUrl: "src/Login/login.html",
+    templateUrl: "html/menu.html",
     controller: "loginCtrl"
   });
   $routeProvider.when("/group", {
