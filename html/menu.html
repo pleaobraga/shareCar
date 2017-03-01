@@ -1,0 +1,41 @@
+<div class="menu-top" layout="column">
+  <div layout="row">
+    <div flex-gt-sm="15" flex-sm="20" ></div>
+    <div layout="row" layout-align="start start" flex-gt-sm="85" flex-sm="80" class="center-menu">
+      <div layout="row" layout-align="space-around" class="botao-menu">
+        <span class="md-subhead">DASHBOARD</span>
+        <span class="md-subhead">VEÍCULOS</span>
+        <span class="md-subhead">USUÁRIOS</span>
+      </div>
+    </div>
+  </div>
+  <div layout="row">
+    <div flex-gt-sm="15" flex-sm="20" ></div>
+    <div layout="row" layout-align="end center" class="group-user-menu" flex-gt-sm="85" flex-sm="80" class="center-menu">
+      <i  class="material-icons" >notifications_none</i>
+      <img layout-margin src="images/foto1.png" style="height: 40px;" />
+      <div layout="column" layout-align="center start">
+        <span class="md-subhead" style="color: white; padding-right: 7px;">Grupo das Panteras</span>
+        <span class="md-body-1" style="color: #737780">Antonio Leão Braga</span>
+      </div>
+      <i  class="material-icons">keyboard_arrow_down</i>
+    </div>
+  </div>
+  <div layout="row" class="title-menu-top">
+    <div flex-gt-sm="15" flex-sm="20" layout="row" layout-align="center center">
+      <ng-include src="'html/marcaMenu.html'"></ng-include>
+     </div>
+     <div layout="row" layout-align="start center" flex-gt-sm="85" flex-sm="80" class="center-menu">
+       <span class="md-display-1" style="color: white">Veículos</span>
+     </div>
+  </div>
+  <div layout="row" >
+    <div flex-gt-sm="15" flex-sm="20"></div>
+     <div layout="row" layout-align="start center" flex-gt-sm="85" flex-sm="80">
+       <md-nav-bar nav-bar-aria-label="navigation links" md-selected-nav-item="currentNavItem">
+         <md-nav-item md-nav-click="goto('\login')" name="GARAGEM" >GARAGEM</md-nav-item>
+         <md-nav-item md-nav-click="goto('\login')" name="MINHAS RESERVAS" >MINHAS RESERVAS</md-nav-item>
+       </md-nav-bar>
+     </div>
+  </div>
+</div>
