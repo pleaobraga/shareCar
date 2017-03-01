@@ -23,21 +23,30 @@ md-input-container:only-of-type:first-of-type {
   padding: 10px 0;
 }
 
+.offset-title-menu-top {
+  margin-top: -59px;
+}
+
 .title-menu-top {
-  margin-top: -48px;
+  color: white;
+  text-transform: uppercase;
 }
 
 .menu-top i  {
   color: white;
 }
 
-.menu-top span {
-  padding-right: 7%;
+.menu-top a {
+  margin-right: 7% !important;
   color: #5C6169;
 }
 
-.botao-menu > span {
+.botao-menu > a {
   cursor: pointer;
+}
+
+.botao-menu > a:hover {
+  color: #fff;
 }
 
 .marca-menu {
@@ -62,7 +71,11 @@ md-input-container:only-of-type:first-of-type {
 }
 
 .center-menu{
-  padding-left: 20px;
+  margin-left: 20px !important;
+}
+
+.center-menu a:first-child {
+  margin-left: 26px !important;
 }
 
 .md-button:nth-of-type(2) {
@@ -77,6 +90,10 @@ md-input-container:only-of-type:first-of-type {
 md-nav-bar button {
   background-color: inherit !important;
   margin: 0 !important;
+}
+
+md-nav-bar button:hover {
+  background-color: #221e1e !important;
 }
 
 md-nav-bar button span {

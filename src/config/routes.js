@@ -2,7 +2,7 @@ shareCar.config(['$routeProvider','$locationProvider', function($routeProvider,$
 {
   $routeProvider.when("/login", {
     //templateUrl: "src/Login/login.html",
-    templateUrl: "html/menu.html",
+    templateUrl: "src/Menu/menu.html",
     controller: "loginCtrl"
   });
   $routeProvider.when("/group", {
@@ -20,6 +20,18 @@ shareCar.config(['$routeProvider','$locationProvider', function($routeProvider,$
   $routeProvider.when("/forgotPassword", {
     templateUrl: "src/ForgotPassword/forgotPassword.html",
     controller: "forgotPasswordCtrl"
+  });
+  $routeProvider.when("/:group/vehicles/:option", {
+    templateUrl: "src/Vehicles/vehicles.html",
+    controller: "vehiclesCtrl"
+  });
+  $routeProvider.when("/:group/dashBoard", {
+    templateUrl: "src/DashBoard/dashBoard.html",
+    controller: "dashBoardCtrl"
+  });
+  $routeProvider.when("/:group/users", {
+    templateUrl: "src/Users/users.html",
+    controller: "usersCtrl"
   });
   $routeProvider.otherwise({redirectTo: "/login"});
 
