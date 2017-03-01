@@ -28,7 +28,8 @@ shareCar.controller("loginCtrl", ['$scope', '$location', '$rootScope',function($
   {
     //insert loginService
     // $scope.isEmailExist = false;
-    $rootScope.user.isEmailExist = false;
+    //$rootScope.user.isEmailExist = false;
+    $location.path("/panteras/users")
 
   };
 

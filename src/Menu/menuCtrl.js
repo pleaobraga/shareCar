@@ -13,13 +13,13 @@ shareCar.controller("menuCtrl", ['$scope', '$location', '$routeParams', function
 
     switch ($scope.aba) {
       case 'vehicles':
-        $scope.abaTranslate = 'veículos';
+        $scope.abaTranslate = 'Veículos';
         break;
         case 'users':
-          $scope.abaTranslate = 'usuários';
+          $scope.abaTranslate = 'Usuários';
           break;
 
-      default: $scope.abaTranslate = 'dashboard';
+      default: $scope.abaTranslate = 'Dashboard';
 
     }
 

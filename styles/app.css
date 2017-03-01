@@ -12,6 +12,32 @@ md-input-container:only-of-type:first-of-type {
   margin-top: 29px !important;
 }
 
+.users {
+    margin: 10px 275px;
+}
+
+.users p {
+  text-align: center;
+  color: #727272;
+}
+
+.users md-whiteframe {
+  padding: 0 38px;
+  width: 310px;
+  height: 400px;
+}
+
+.search {
+  width: 310px;
+  margin-top: -19px;
+}
+
+.img-add-user {
+  margin-top: -9px;
+  margin-bottom: 9px;
+}
+
+
 .group-user-menu{
   padding-right: 4%;
 }
@@ -29,7 +55,7 @@ md-input-container:only-of-type:first-of-type {
 
 .title-menu-top {
   color: white;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 
 .menu-top i  {
@@ -152,6 +178,7 @@ md-whiteframe {
   text-decoration: underline;
   cursor: pointer;
 }
+
 
 .material-icons {
 font-family: 'Material Icons';
