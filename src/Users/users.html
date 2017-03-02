@@ -1,94 +1,166 @@
-<ng-include src="'src/Menu/menu.html'"></ng-include>
+<!-- <ng-include src="'src/Menu/menu.html'"></ng-include> -->
 
-<div class="users" layout="column" layout="start center">
-  <div layout="row" layout-align="space-between center" class="search">
-    <i class="material-icons" style="color: #727272">search</i>
-    <md-input-container>
-      <label></label>
-      <input placeholder="Pesquisar por Usuário..." />
-    </md-input-container>
-  </div>
+<div class="users" >
+  <div layout="column" layout="start center" style="margin:auto">
+    <div layout="row" layout-align="space-between center" class="search">
+      <i class="material-icons" style="color: #727272">search</i>
+      <md-input-container>
+        <label></label>
+        <input placeholder="Pesquisar por Usuário..." />
+      </md-input-container>
+    </div>
 
-  <div layout="row" layout-align="start center">
-    <md-whiteframe class="md-whiteframe-4dp" layout="column" layout-align="space-around center" ng-show="!convidar">
-      <div   layout="column" layout-align="center center" style="margin-bottom: 18px;">
-        <span layout-margin class="md-title">Convidar Usuário</span>
-      </div>
-
-      <p>Convide usuários para utilizarem os veículos cadastrados</p>
-
-      <img class="img-add-user" src="images/convidar_usuario.png" />
-
-      <md-button ng-click="convidar = true">Convidar</md-button>
-
-    </md-whiteframe>
-
-    <md-whiteframe class="md-whiteframe-4dp" layout="column" layout-align="space-around center" ng-show="convidar">
-      <form name="inviteUserForm" novalidate>
+    <span style="margin: auto;" layout-margin>
+      <md-whiteframe class="md-whiteframe-4dp" layout="column" layout-align="space-around center" ng-show="!convidar">
         <div   layout="column" layout-align="center center" style="margin-bottom: 18px;">
           <span layout-margin class="md-title">Convidar Usuário</span>
         </div>
 
-        <md-input-container>
-          <label>Nome</label>
-          <input type="text" name="name" ng-model="name" required  />
-          <div ng-messages="inviteUserForm.$submitted && inviteUserForm.name.$error" role="alert">
-            <div ng-message="required">Digite sua senha</div>
+        <p>Convide usuários para utilizarem os veículos cadastrados</p>
+
+        <img class="img-add-user" src="images/convidar_usuario.png" />
+
+        <md-button ng-click="convidar = true">Convidar</md-button>
+
+      </md-whiteframe>
+
+      <md-whiteframe  class="md-whiteframe-4dp" layout="column" layout-align="space-around center" ng-show="convidar">
+        <form name="inviteUserForm" novalidate>
+          <div   layout="column" layout-align="center center" style="margin-bottom: 18px;">
+            <span layout-margin class="md-title">Convidar Usuário</span>
           </div>
-        </md-input-container>
 
-        <md-input-container>
-          <label>Sobrenome</label>
-          <input type="text" name="lastName" ng-model="lastName" required  />
-          <div ng-messages="inviteUserForm.$submitted && inviteUserForm.lastName.$error" role="alert">
-            <div ng-message="required">Digite sua senha</div>
+          <md-input-container>
+            <label>Nome</label>
+            <input type="text" name="name" ng-model="name" required  />
+            <div ng-messages="inviteUserForm.$submitted && inviteUserForm.name.$error" role="alert">
+              <div ng-message="required">Digite sua senha</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container>
+            <label>Sobrenome</label>
+            <input type="text" name="lastName" ng-model="lastName" required  />
+            <div ng-messages="inviteUserForm.$submitted && inviteUserForm.lastName.$error" role="alert">
+              <div ng-message="required">Digite sua senha</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container>
+            <label>Sobrenome</label>
+            <input type="email" name="email" ng-model="email" required  />
+            <div ng-messages="inviteUserForm.$submitted && inviteUserForm.email.$error" role="alert">
+              <div ng-message="required">Digite o email</div>
+              <div  ng-message="email">Digite um endereço de email válido</div>
+            </div>
+          </md-input-container>
+
+          <md-button type="submit" ng-click="inviteUserForm.$valid &&  invite">Convidar</md-button>
+          <md-button ng-click="convidar = false">Cancelar</md-button>
+
+        </form>
+      </md-whiteframe>
+
+      <md-whiteframe class="md-whiteframe-4dp" layout="column" layout-align="space-between none" >
+        <div layout="row" layout-align="end center" style="margin-top: 16px;">
+          <i class="material-icons">mode_edit</i>
+          <i class="material-icons">delete</i>
+        </div>
+
+        <div class="group-user-image"  layout="column" layout-align="center center">
+          <img layout-margin src="images/foto1.png" />
+          <span layout-margin class="md-body-2">Antonio Leão Braga</span>
+          <span class="md-caption">pedro_leao_braga@hotmail.com</span>
+        </div>
+
+        <div layout="column" layout-align="space-between none">
+          <div layout="row" layout-align="start center">
+            <i class="material-icons" flex="20" style="color: #727272">smartphone</i>
+            <span flex="80" class="md-caption" style="color: #727272">(31)99993-3774</span>
           </div>
-        </md-input-container>
 
-        <md-input-container>
-          <label>Sobrenome</label>
-          <input type="email" name="email" ng-model="email" required  />
-          <div ng-messages="inviteUserForm.$submitted && inviteUserForm.email.$error" role="alert">
-            <div ng-message="required">Digite o email</div>
-            <div  ng-message="email">Digite um endereço de email válido</div>
+          <div layout="row" layout-align="start center" style=" margin-top: 13px;">
+            <i class="material-icons" flex="20" style="color: #727272">directions_car</i>
+            <span flex="80" class="md-caption" style="color: #727272">Picasso</span>
           </div>
-        </md-input-container>
 
-        <md-button type="submit" ng-click="inviteUserForm.$valid &&  invite">Convidar</md-button>
-        <md-button ng-click="convidar = false">Cancelar</md-button>
-
-    </form>
-  </md-whiteframe>
-
-  <md-whiteframe class="md-whiteframe-4dp" layout="column" layout-align="space-between none" >
-    <div layout="row" layout-align="end center" style="margin-top: 16px;">
-      <i class="material-icons">mode_edit</i>
-      <i class="material-icons">delete</i>
-    </div>
-
-    <div class="group-user-image"  layout="column" layout-align="center center">
-      <img layout-margin src="images/foto1.png" />
-      <span layout-margin class="md-body-2">Antonio Leão Braga</span>
-      <span class="md-caption">pedro_leao_braga@hotmail.com</span>
-    </div>
-
-    <div layout="row" layout-align="start center">
-      <i class="material-icons" flex="20" style="color: #727272">smartphone</i>
-      <span flex="80" class="md-caption" style="color: #727272">(31)99993-3774</span>
-    </div>
-
-    <div layout="row" layout-align="start center">
-      <i class="material-icons" flex="20" style="color: #727272">directions_car</i>
-      <span flex="80" class="md-caption" style="color: #727272">Picasso</span>
-    </div>
+        </div>
 
 
-    <md-button class="inverted-button">Associar outro veículo</md-button>
+        <div layout="row" layout-align="end center">
+          <md-button class="inverted-button">Associar outro veículo</md-button>
+        </div>
+
+      </md-whiteframe>
+      <md-whiteframe class="md-whiteframe-4dp" layout="column" layout-align="space-between none" >
+        <div layout="row" layout-align="end center" style="margin-top: 16px;">
+          <i class="material-icons">mode_edit</i>
+          <i class="material-icons">delete</i>
+        </div>
+
+        <div class="group-user-image"  layout="column" layout-align="center center">
+          <img layout-margin src="images/foto1.png" />
+          <span layout-margin class="md-body-2">Antonio Leão Braga</span>
+          <span class="md-caption">pedro_leao_braga@hotmail.com</span>
+        </div>
+
+        <div layout="column" layout-align="space-between none">
+          <div layout="row" layout-align="start center">
+            <i class="material-icons" flex="20" style="color: #727272">smartphone</i>
+            <span flex="80" class="md-caption" style="color: #727272">(31)99993-3774</span>
+          </div>
+
+          <div layout="row" layout-align="start center" style=" margin-top: 13px;">
+            <i class="material-icons" flex="20" style="color: #727272">directions_car</i>
+            <span flex="80" class="md-caption" style="color: #727272">Picasso</span>
+          </div>
+
+        </div>
 
 
-  </md-whiteframe>
+        <div layout="row" layout-align="end center">
+          <md-button class="inverted-button">Associar outro veículo</md-button>
+        </div>
 
-</div>
+      </md-whiteframe>
+
+      <md-whiteframe class="md-whiteframe-4dp" layout="column" layout-align="space-between none" >
+        <div layout="row" layout-align="end center" style="margin-top: 16px;">
+          <i class="material-icons">mode_edit</i>
+          <i class="material-icons">delete</i>
+        </div>
+
+        <div class="group-user-image"  layout="column" layout-align="center center">
+          <img layout-margin src="images/foto1.png" />
+          <span layout-margin class="md-body-2">Antonio Leão Braga</span>
+          <span class="md-caption">pedro_leao_braga@hotmail.com</span>
+        </div>
+
+        <div layout="column" layout-align="space-between none">
+          <div layout="row" layout-align="start center">
+            <i class="material-icons" flex="20" style="color: #727272">smartphone</i>
+            <span flex="80" class="md-caption" style="color: #727272">(31)99993-3774</span>
+          </div>
+
+          <div layout="row" layout-align="start center" style=" margin-top: 13px;">
+            <i class="material-icons" flex="20" style="color: #727272">directions_car</i>
+            <span flex="80" class="md-caption" style="color: #727272">Picasso</span>
+          </div>
+
+        </div>
 
 
+        <div layout="row" layout-align="end center">
+          <md-button class="inverted-button">Associar outro veículo</md-button>
+        </div>
+
+      </md-whiteframe>
+
+
+
+
+
+
+    </span>
+  </div>
 </div>

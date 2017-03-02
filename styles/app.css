@@ -24,7 +24,9 @@ md-input-container:only-of-type:first-of-type {
 }
 
 .users {
-    margin: 10px 275px;
+    /*margin: 10px 10%;*/
+    margin: 10px auto;
+    max-width: 1005px;
 }
 
 .users p {
@@ -36,11 +38,16 @@ md-input-container:only-of-type:first-of-type {
   padding: 0 38px;
   width: 310px;
   height: 400px;
+  margin-right: 17px;
+  margin-bottom: 17px;
+
+  float: left !important;
 }
 
 .search {
   width: 310px;
   margin-top: -19px;
+  margin: auto;
 }
 
 .img-add-user {
@@ -102,7 +109,7 @@ md-input-container:only-of-type:first-of-type {
 .md-button {
   color : #fff;
   background-color: #009688;
-  width: 100% !important;
+  width: 100%;
   margin-left: 0;
   margin-right: 0;
 }
@@ -120,8 +127,8 @@ md-input-container:only-of-type:first-of-type {
   background-color: #fff ;
 }
 
-.md-button:not([disabled]):hover:nth-of-type(2) {
-  background-color: #CBCBCB ;
+.md-button:not([disabled]):hover:nth-of-type(2), .inverted-button:not([disabled]):hover {
+  background-color: #CBCBCB !important;
 }
 
 md-nav-bar button {
@@ -256,6 +263,10 @@ form[name = "addUserForm"]  p {
     left: 0;
   }
 
+  .users {
+    width: 670px;
+  }
+
 
 }
 
@@ -274,5 +285,16 @@ form[name = "addUserForm"]  p {
   form[name = "addUserForm"] .check-password {
     left: 0;
   }
+
+  .users {
+    width: 320px;
+  }
+
+  .users md-whiteframe{
+    margin-right: 8px;
+    margin-left: 8px;
+    width: 302px !important;
+  }
+
 
 }
