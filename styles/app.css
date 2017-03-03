@@ -19,14 +19,10 @@ md-input-container:only-of-type:first-of-type {
   width: auto !important;
 }
 
-.group-user-image{
-  margin-top: -65px;
-}
-
 .users {
     /*margin: 10px 10%;*/
     margin: 10px auto;
-    max-width: 1005px;
+    width: 1005px;
 }
 
 .users p {
@@ -35,13 +31,34 @@ md-input-container:only-of-type:first-of-type {
 }
 
 .users md-whiteframe {
-  padding: 0 38px;
+  padding: 0 34px;
   width: 310px;
   height: 400px;
   margin-right: 17px;
   margin-bottom: 17px;
 
   float: left !important;
+}
+
+.users md-whiteframe > div:nth-of-type(2) {
+  margin-top: 16px;
+
+}
+
+.ticket {
+  margin-right: 10px;
+  background: #F2994A;
+  padding: 2px 10px;
+  border-radius: 11px;
+  color: white;
+  text-align: center;
+}
+
+.own-ticket {
+  background: #00C5A7;
+  padding: 2px 10px;
+  border-radius: 11px;
+  color: white;
 }
 
 .search {
@@ -265,6 +282,8 @@ form[name = "addUserForm"]  p {
 
   .users {
     width: 670px;
+    margin: auto;
+
   }
 
 
@@ -288,6 +307,8 @@ form[name = "addUserForm"]  p {
 
   .users {
     width: 320px;
+    margin: auto;
+
   }
 
   .users md-whiteframe{
