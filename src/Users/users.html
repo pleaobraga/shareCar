@@ -10,7 +10,7 @@
       </md-input-container>
     </div>
 
-    <div style="margin: auto" layout-margin>
+    <div style="margin: auto" >
       <md-whiteframe class="md-whiteframe-4dp" layout="column" layout-align="space-around center" ng-show="!convidar">
         <div   layout="column" layout-align="center center" style="margin-bottom: 18px;">
           <span layout-margin class="md-title">Convidar Usuário</span>
@@ -61,10 +61,75 @@
         </form>
       </md-whiteframe>
 
-      <md-whiteframe ng-repeat="userActive in usersActivate" ng-mouseenter="showOptionIcons($index)" ng-mouseleave="hideOptionIcons($index)" class="md-whiteframe-4dp" layout="column" layout-align="space-between none" >
+      <div ng-repeat="userInvited in usersInvited" style="margin 8px;">
+
+      <md-whiteframe ng-show="!editUser[$index]" style="background-color: #F7F7F7"  ng-mouseenter="showOptionIcons($index)" ng-mouseleave="hideOptionIcons($index)" class="md-whiteframe-4dp" layout="column" layout-align="space-between none" >
 
         <div layout="row" layout-align="end center" style="margin-top: 16px;" ng-show="showOptionIcons[$index]" >
-          $scope. = function(id)
+          <i class="material-icons" style="cursor: pointer" ng-click="editUser[$index] = true">mode_edit</i>
+          <i class="material-icons" style="cursor: pointer" ng-click="deleteUser(userActive.id)">delete</i>
+        </div>
+
+        <div  layout="column" layout-align="center center" ng-style="classIcon[$index]">
+          <i class="material-icons" style="font-size: 106px; color: #b6b6b6;">account_circle</i>
+          <span layout-margin class="md-body-2">{{userInvited.name}}</span>
+          <span class="md-caption">{{userInvited.email}}</span>
+        </div>
+
+        <div layout="column" layout-align="space-around center" >
+          <div class="md-caption" style="color: #727272;" >Convidado</div>
+          <div class="md-caption" style="color: #727272; margin-top: 15px;" >Criação de Conta Pendente</div>
+        </div>
+
+
+        <div layout="row" layout-align="end center">
+          <md-button class="inverted-button" ng-click="associateAnotherVehicle(userActive.id)">Reenviar Convite</md-button>
+        </div>
+
+      </md-whiteframe>
+
+      <md-whiteframe  class="md-whiteframe-4dp" layout="column" layout-align="space-around center" ng-show="editUser[$index]">
+        <form name="editUserForm" novalidate>
+          <div   layout="column" layout-align="center center" style="margin-bottom: 18px;">
+            <span layout-margin class="md-title">Editar Usuário</span>
+          </div>
+
+          <md-input-container>
+            <label>Nome</label>
+            <input type="text" name="name" ng-model="userInvited.name" required  />
+            <div ng-messages="editUserForm.$submitted && editUserForm.name.$error" role="alert">
+              <div ng-message="required">Digite sua senha</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container>
+            <label>Sobrenome</label>
+            <input type="text" name="lastName" ng-model="userInvited.lastName" required  />
+            <div ng-messages="editUserForm.$submitted && editUserForm.lastName.$error" role="alert">
+              <div ng-message="required">Digite sua senha</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container>
+            <label>Sobrenome</label>
+            <input type="email" name="email" ng-model="userInvited.email" required  />
+            <div ng-messages="editUserForm.$submitted && editUserForm.email.$error" role="alert">
+              <div ng-message="required">Digite o email</div>
+              <div  ng-message="email">Digite um endereço de email válido</div>
+            </div>
+          </md-input-container>
+
+          <md-button type="submit" ng-click="inviteUserForm.$valid &&  invite">Salvar</md-button>
+          <md-button ng-click="editUser[$index] = false">Cancelar</md-button>
+
+        </form>
+      </md-whiteframe>
+
+    </div>
+
+      <md-whiteframe ng-repeat="userActive in usersActivate" ng-mouseenter="showOptionImage($index)" ng-mouseleave="hideOptionImage($index)" class="md-whiteframe-4dp" layout="column" layout-align="space-between none" >
+
+        <div layout="row" layout-align="end center" style="margin-top: 16px;" ng-show="showOptionImage[$index]" >
           <i class="material-icons" style="cursor: pointer" ng-click="edit(userActive.id)">mode_edit</i>
           <i class="material-icons" style="cursor: pointer" ng-click="deleteUser(userActive.id)">delete</i>
         </div>
