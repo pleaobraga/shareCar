@@ -8,6 +8,13 @@ md-input-container {
 }
 
 
+.img-add-vehicle {
+  margin-top: -9px;
+  margin-bottom: 9px;
+  width: 71px;
+  margin-left: 13px;
+}
+
 md-input-container:only-of-type:first-of-type {
   margin-top: 29px !important;
 }

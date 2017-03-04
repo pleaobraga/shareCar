@@ -1,5 +1,7 @@
 shareCar.controller("menuCtrl", ['$scope', '$location', '$routeParams', function($scope, $location, $routeParams){
 
+  $scope.group = $routeParams.group;
+
   $scope.findLocateAba = function()
   {
     var aba = $location.url().split('/')
@@ -8,7 +10,7 @@ shareCar.controller("menuCtrl", ['$scope', '$location', '$routeParams', function
 
     if($scope.aba == 'vehicles')
     {
-      $scope.currentNavItem = $routeParams.option;
+      $scope.currentNavItem = 'garage';
     }
 
     switch ($scope.aba) {
@@ -30,15 +32,10 @@ shareCar.controller("menuCtrl", ['$scope', '$location', '$routeParams', function
     return $scope.aba == abaName;
   };
 
-  $scope.goToPage = function(pageName, subPage)
+  $scope.goToPage = function(pageName)
   {
     var adress = "/" + $routeParams.group + "/" + pageName;
 
-    if(subPage)
-    {
-      adress += "/garage";
-
-    }
 
     $location.path(adress);
 
@@ -46,8 +43,7 @@ shareCar.controller("menuCtrl", ['$scope', '$location', '$routeParams', function
 
   $scope.goToSubMenuVehicles = function(subAba)
   {
-    var adress = "/" + $routeParams.group + "/vehicles/" + subAba;
-    $location.path(adress);
+    $scope.currentNavItem = subAba;
 
   };
 

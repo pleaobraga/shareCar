@@ -10,9 +10,7 @@ shareCar.controller("usersCtrl", ['$scope', function($scope){
   phone: '(31)99993-3774', car_name: 'Picasso', maker: 'Land Rover', owner: true },{name: 'Antonio Leão Braga', email: 'pedro_leao_braga@hotmail.com',
   phone: '(31)99993-3774', car_name: 'Picasso', maker: 'Land Rover', owner: true }];
 
-  $scope.usersInvited = [{id: 0, name: 'Antonio Leão Braga', email: 'pedro_leao_braga@hotmail.com' },
-    {id: 0, name: 'Antonio Leão Braga', email: 'pedro_leao_braga@hotmail.com' },
-  {id: 0, name: 'Antonio Leão Braga', email: 'pedro_leao_braga@hotmail.com' }];
+  $scope.usersInvited = [{id: 0, name: 'Antonio Leão Braga', email: 'pedro_leao_braga@hotmail.com' }];
 
   //$scope.usersActivate = [];
 

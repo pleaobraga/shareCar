@@ -20,7 +20,7 @@ shareCar.config(['$routeProvider','$locationProvider', function($routeProvider,$
     templateUrl: "src/ForgotPassword/forgotPassword.html",
     controller: "forgotPasswordCtrl"
   });
-  $routeProvider.when("/:group/vehicles/:option", {
+  $routeProvider.when("/:group/vehicles/", {
     templateUrl: "src/Vehicles/vehicles.html",
     controller: "vehiclesCtrl"
   });

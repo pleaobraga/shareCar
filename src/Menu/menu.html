@@ -3,9 +3,9 @@
     <div flex-gt-sm="15" flex-sm="20" ></div>
     <div layout="row" layout-align="start start" flex-gt-sm="85" flex-sm="80" class="center-menu">
       <div layout="row" layout-align="space-around" class="botao-menu">
-        <a  ng-click="goToPage('dashBoard',false)" ng-style="verifyaba('dashBoard') ? {'color':'white'} : {}">DASHBOARD</a>
-        <a  ng-click="goToPage('vehicles',true)" ng-style="verifyaba('vehicles') ? {'color':'white'} : {}">VEÍCULOS</a>
-        <a  ng-click="goToPage('users',false)" ng-style="verifyaba('users') ? {'color':'white'} : {}">USUÁRIOS</a>
+        <a  ng-click="goToPage('dashBoard')" ng-style="verifyaba('dashBoard') ? {'color':'white'} : {}">DASHBOARD</a>
+        <a  ng-click="goToPage('vehicles')" ng-style="verifyaba('vehicles') ? {'color':'white'} : {}">VEÍCULOS</a>
+        <a  ng-click="goToPage('users')" ng-style="verifyaba('users') ? {'color':'white'} : {}">USUÁRIOS</a>
       </div>
     </div>
   </div>
@@ -15,7 +15,7 @@
       <i  class="material-icons" >notifications_none</i>
       <img layout-margin src="images/foto1.png" style="height: 40px;" />
       <div layout="column" layout-align="center start">
-        <span class="md-subhead" style="color: white; padding-right: 7px;">Grupo das Panteras</span>
+        <span class="md-subhead" style="color: white; padding-right: 7px;">{{"Grupo " + group}}</span>
         <span class="md-body-1" style="color: #737780">Antonio Leão Braga</span>
       </div>
       <i  class="material-icons">keyboard_arrow_down</i>
