@@ -26,18 +26,32 @@ md-input-container:only-of-type:first-of-type {
   width: auto !important;
 }
 
-.users {
+
+.users,  .vehicle{
     /*margin: 10px 10%;*/
     margin: 10px auto;
     width: 1005px;
 }
 
-.users p {
+.card-cadastrate-vehicle{
+  height: 452px !important;
+}
+
+.card-add-vehicle{
+  height: 285px !important;
+  padding: 11px 28px !important;
+}
+
+.card-cadastrate-vehicle md-input-container {
+  height: 49px;
+}
+
+.users p, .vehicle p {
   text-align: center;
   color: #727272;
 }
 
-.users md-whiteframe {
+.users md-whiteframe, .vehicle md-whiteframe {
   padding: 0 34px;
   width: 310px;
   height: 400px;
@@ -47,7 +61,7 @@ md-input-container:only-of-type:first-of-type {
   float: left !important;
 }
 
-.users md-whiteframe > div:nth-of-type(2) {
+.users md-whiteframe > div:nth-of-type(2), .vehicle md-whiteframe > div:nth-of-type(2) {
   margin-top: 16px;
 
 }
@@ -323,7 +337,7 @@ form[name = "addUserForm"]  p {
     left: 0;
   }
 
-  .users {
+  .users, .vehicle {
     width: 670px;
     margin: auto;
 
@@ -348,16 +362,17 @@ form[name = "addUserForm"]  p {
     left: 0;
   }
 
-  .users {
+  .users, .vehicle {
     width: 320px;
     margin: auto;
 
   }
 
-  .users md-whiteframe{
+  .users md-whiteframe, .vehicle md-whiteframe{
     margin-right: 8px;
     margin-left: 8px;
     width: 302px !important;
+    margin-top: 16px;
   }
 
 

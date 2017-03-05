@@ -1,6 +1,6 @@
-<div class="users" >
+<div class="vehicle" >
   <div layout="column" layout="start center" style="margin:auto">
-    <div layout="row" layout-align="space-between center" class="search">
+    <div layout="row" layout-align="space-between center" class="search" hide-xs>
       <i class="material-icons" style="color: #727272">search</i>
       <md-input-container>
         <label></label>
@@ -9,7 +9,7 @@
     </div>
 
     <div style="margin: auto" >
-      <md-whiteframe class="md-whiteframe-4dp" layout="column" layout-align="space-around center" ng-show="!convidar">
+      <md-whiteframe class="md-whiteframe-4dp" layout="column" layout-align="space-around center" ng-show="!convidar" hide-xs>
         <div   layout="column" layout-align="center center" style="margin-bottom: 18px;">
           <span layout-margin class="md-title">Adicionar Veículo</span>
         </div>
@@ -26,9 +26,26 @@
 
       </md-whiteframe>
 
-      <md-whiteframe  class="md-whiteframe-4dp" layout="column" layout-align="space-around center" ng-show="convidar">
+      <md-whiteframe class="md-whiteframe-4dp card-add-vehicle" layout="column" layout-align="space-around center" ng-show="!convidar" hide-gt-xs>
+        <div   layout="column" layout-align="center center">
+          <span layout-margin class="md-title">Adicionar Veículo</span>
+        </div>
+
+        <p>Adicione os veículos que ficarão na sua garagem, disponíveis para os usuários reservarem.</p>
+
+        <div layout="row" layout-align="space-around center">
+          <img class="img-add-vehicle" src="images/carro.png" />
+          <img class="img-add-vehicle" src="images/moto.png" />
+          <img class="img-add-vehicle" src="images/caminhao.png" />
+        </div>
+
+        <md-button ng-click="convidar = true">Convidar</md-button>
+
+      </md-whiteframe>
+
+      <md-whiteframe  class="md-whiteframe-4dp card-cadastrate-vehicle" layout="column" layout-align="space-around center" ng-show="convidar">
         <form name="addVehiclerForm" novalidate>
-          <div   layout="column" layout-align="center center" style="margin-bottom: 18px;">
+          <div   layout="column" layout-align="center center" style="margin-bottom: 13px;">
             <span layout-margin class="md-title">Adicionar Veículo</span>
           </div>
 
@@ -43,139 +60,56 @@
               </md-option>
             </md-select>
             <div ng-messages="addVehiclerForm.$submitted && addVehiclerForm.type.$error" role="alert">
-              <div ng-message="required">Digite sua senha</div>
+              <div ng-message="required">Escolha um Tipo de veículo </div>
             </div>
           </md-input-container>
 
           <md-input-container>
-            <label>Marca</label>
+            <label>Fabricante/Marca</label>
             <md-select ng-model="vehicle.made" name="made"  required>
               <!-- <md-select-header >
                 <input ng-model="searchTerm"
                        type="search"
                        placeholder="Procure pela Marca">
               </md-select-header> -->
-              <md-option ng-repeat="fabricant in vehicleFabricant | filter:searchTerm" ng-value="fabricant">
+              <md-option ng-repeat="fabricant in vehicleFabricant" ng-value="fabricant">
                 {{fabricant}}
               </md-option>
             </md-select>
             <div ng-messages="addVehiclerForm.$submitted && addVehiclerForm.type.$error" role="alert">
-              <div ng-message="required">Digite sua senha</div>
+              <div ng-message="required">Escolha um Fabricante</div>
             </div>
           </md-input-container>
+
+            <md-input-container>
+            <label>Modelo</label>
+            <md-select ng-model="vehicle.model" name="model"  required>
+              <!-- <md-select-header >
+                <input ng-model="searchTerm"
+                       type="search"
+                       placeholder="Procure pela Marca">
+              </md-select-header> -->
+              <md-option ng-repeat="model in vehicleModel">
+                {{model}}
+              </md-option>
+            </md-select>
+            <div ng-messages="addVehiclerForm.$submitted && addVehiclerForm.model.$error" role="alert">
+              <div ng-message="required">Escolha um Modelo</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container>
+          <label>Placa</label>
+          <input ng-model="vehicle.placa" name="placa"  required>
+          <div ng-messages="addVehiclerForm.$submitted && addVehiclerForm.placa.$error" role="alert">
+            <div ng-message="required">Insira um numero de placa válido</div>
+          </div>
+        </md-input-container>
 
           <md-button type="submit" ng-click="inviteUserForm.$valid &&  invite">Convidar</md-button>
           <md-button ng-click="convidar = false">Cancelar</md-button>
 
         </form>
-      </md-whiteframe>
-
-      <div ng-repeat="userInvited in usersInvited" style="margin 8px;">
-
-      <md-whiteframe ng-show="!editUser[$index]" style="background-color: #F7F7F7"  ng-mouseenter="showOptionIcons($index)" ng-mouseleave="hideOptionIcons($index)" class="md-whiteframe-4dp" layout="column" layout-align="space-between none" >
-
-        <div layout="row" layout-align="end center" style="margin-top: 16px;" ng-show="showOptionIcons[$index]" >
-          <i class="material-icons" style="cursor: pointer" ng-click="editUser[$index] = true">mode_edit</i>
-          <i class="material-icons" style="cursor: pointer" ng-click="deleteUser(userActive.id)">delete</i>
-        </div>
-
-        <div  layout="column" layout-align="center center" ng-style="classIcon[$index]">
-          <i class="material-icons" style="font-size: 106px; color: #b6b6b6;">account_circle</i>
-          <span layout-margin class="md-body-2">{{userInvited.name}}</span>
-          <span class="md-caption">{{userInvited.email}}</span>
-        </div>
-
-        <div layout="column" layout-align="space-around center" >
-          <div class="md-caption" style="color: #727272;" >Convidado</div>
-          <div class="md-caption" style="color: #727272; margin-top: 15px;" >Criação de Conta Pendente</div>
-        </div>
-
-
-        <div layout="row" layout-align="end center">
-          <md-button class="inverted-button" ng-click="associateAnotherVehicle(userActive.id)">Reenviar Convite</md-button>
-        </div>
-
-      </md-whiteframe>
-
-      <md-whiteframe  class="md-whiteframe-4dp" layout="column" layout-align="space-around center" ng-show="editUser[$index]">
-        <form name="editUserForm" novalidate>
-          <div   layout="column" layout-align="center center" style="margin-bottom: 18px;">
-            <span layout-margin class="md-title">Editar Usuário</span>
-          </div>
-
-          <md-input-container>
-            <label>Nome</label>
-            <input type="text" name="name" ng-model="userInvited.name" required  />
-            <div ng-messages="editUserForm.$submitted && editUserForm.name.$error" role="alert">
-              <div ng-message="required">Digite sua senha</div>
-            </div>
-          </md-input-container>
-
-          <md-input-container>
-            <label>Sobrenome</label>
-            <input type="text" name="lastName" ng-model="userInvited.lastName" required  />
-            <div ng-messages="editUserForm.$submitted && editUserForm.lastName.$error" role="alert">
-              <div ng-message="required">Digite sua senha</div>
-            </div>
-          </md-input-container>
-
-          <md-input-container>
-            <label>Sobrenome</label>
-            <input type="email" name="email" ng-model="userInvited.email" required  />
-            <div ng-messages="editUserForm.$submitted && editUserForm.email.$error" role="alert">
-              <div ng-message="required">Digite o email</div>
-              <div  ng-message="email">Digite um endereço de email válido</div>
-            </div>
-          </md-input-container>
-
-          <md-button type="submit" ng-click="inviteUserForm.$valid &&  invite">Salvar</md-button>
-          <md-button ng-click="editUser[$index] = false">Cancelar</md-button>
-
-        </form>
-      </md-whiteframe>
-
-    </div>
-
-      <md-whiteframe ng-repeat="userActive in usersActivate" ng-mouseenter="showOptionImage($index)" ng-mouseleave="hideOptionImage($index)" class="md-whiteframe-4dp" layout="column" layout-align="space-between none" >
-
-        <div layout="row" layout-align="end center" style="margin-top: 16px;" ng-show="showOptionImage[$index]" >
-          <i class="material-icons" style="cursor: pointer" ng-click="edit(userActive.id)">mode_edit</i>
-          <i class="material-icons" style="cursor: pointer" ng-click="deleteUser(userActive.id)">delete</i>
-        </div>
-
-        <div  layout="column" layout-align="center center" ng-style="classImag[$index]">
-          <img layout-margin src="images/foto1.png" />
-          <span layout-margin class="md-body-2">{{userActive.name}}</span>
-          <span class="md-caption">{{userActive.email}}</span>
-        </div>
-
-        <div layout="column" layout-align="space-between none" >
-          <div layout="row" layout-align="start center">
-            <i class="material-icons"  style="color: #727272">smartphone</i>
-            <span  class="md-caption" style="color: #727272; margin-left: 23px;">{{userActive.phone}}</span>
-          </div>
-
-          <div layout="row" layout-align="start center" style=" margin-top: 20px;">
-            <i class="material-icons" style="color: #727272">directions_car</i>
-            <div layout="column">
-              <span class="md-caption" style="color: #727272; margin-left: 23px;">{{userActive.car_name}}</span>
-            </div>
-          </div>
-          <div layout="row" layout-align="start start">
-            <div flex="20"></div>
-            <div flex="80"  layout="row" layout-align="start center">
-              <span class="md-caption ticket">{{userActive.maker}}</span>
-              <span ng-if="userActive.owner" class="md-caption own-ticket">Proprietário</span>
-            </div>
-          </div>
-
-        </div>
-
-
-        <div layout="row" layout-align="end center">
-          <md-button class="inverted-button" ng-click="associateAnotherVehicle(userActive.id)">Associar outro veículo</md-button>
-        </div>
-
       </md-whiteframe>
 
     </div>
