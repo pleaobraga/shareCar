@@ -5,10 +5,10 @@ shareCar.controller("usersCtrl", ['$scope', function($scope){
   $scope.classImag = [];
   $scope.classIcon = [];
   $scope.usersActivate = [{id: 0, name: 'Antonio Leão Braga', email: 'pedro_leao_braga@hotmail.com',
-  phone: '(31)99993-3774', car_name: 'Picasso', maker: 'Land Rover', owner: true }, {name: 'Antonio Leão Braga', email: 'pedro_leao_braga@hotmail.com',
-  phone: '(31)99993-3774', car_name: 'Picasso', maker: 'Land Rover', owner: true },{name: 'Antonio Leão Braga', email: 'pedro_leao_braga@hotmail.com',
-  phone: '(31)99993-3774', car_name: 'Picasso', maker: 'Land Rover', owner: true },{name: 'Antonio Leão Braga', email: 'pedro_leao_braga@hotmail.com',
-  phone: '(31)99993-3774', car_name: 'Picasso', maker: 'Land Rover', owner: true }];
+  phone: '(31)99993-3774', car:[{car_name: 'Picasso', maker: 'Land Rover', owner: true},{car_name: 'Picasso', maker: 'Land Rover', owner: true},{car_name: 'Picasso', maker: 'Land Rover', owner: true}] }, {name: 'Antonio Leão Braga', email: 'pedro_leao_braga@hotmail.com',
+  phone: '(31)99993-3774', car:[{car_name: 'Picasso', maker: 'Land Rover', owner: true},{car_name: 'Picasso', maker: 'Land Rover', owner: true}] },{name: 'Antonio Leão Braga', email: 'pedro_leao_braga@hotmail.com',
+  phone: '(31)99993-3774', car:[{car_name: 'HB20', maker: 'Hyundai', owner: true},{car_name: 'Picasso', maker: 'Land Rover', owner: true}] },{name: 'Antonio Leão Braga', email: 'pedro_leao_braga@hotmail.com',
+  phone: '(31)99993-3774', car:[{car_name: 'Picasso', maker: 'Land Rover', owner: true}] }];
 
   $scope.usersInvited = [{id: 0, name: 'Antonio Leão Braga', email: 'pedro_leao_braga@hotmail.com' }];
 
@@ -22,7 +22,7 @@ shareCar.controller("usersCtrl", ['$scope', function($scope){
   $scope.showOptionIcons = function(index)
   {
     $scope.showOptionIcons[index] = true;
-    $scope.classIcon[index] = {'margin-top': '-90px'};
+    $scope.classIcon[index] = {'margin-top': '-86px'};
   };
 
   $scope.hideOptionIcons = function(index)
@@ -34,7 +34,7 @@ shareCar.controller("usersCtrl", ['$scope', function($scope){
   $scope.showOptionImage = function(index)
   {
     $scope.showOptionImage[index] = true;
-    $scope.classImag[index] = {'margin-top': '-68px'};
+    $scope.classImag[index] = {'margin-top': '-58px'};
   };
 
   $scope.hideOptionImage = function(index)

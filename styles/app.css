@@ -74,6 +74,42 @@ md-input-container:only-of-type:first-of-type {
   margin: auto;
 }
 
+.user-card-responsive{
+  height: 213px !important;
+  padding: 8px 22px !important;
+  margin-top: 17px;
+
+}
+
+.number-cars-associate{
+  padding: 1px 4px;
+  background: red;
+  border-radius: 122px;
+  font-size: 10px;
+  color: white;
+  position: relative;
+  top: -9px;
+  left: 15px;
+}
+
+.user-card-responsive img {
+  width: 67px !important;
+  margin-right: 20px !important;
+
+}
+
+.user-card-responsive p {
+  text-align: justify !important;
+}
+
+.invited-user-card{
+  background-color: #F7F7F7;
+}
+
+.invited-user-card .inverted-button{
+  background-color: #F7F7F7 !important;
+}
+
 .img-add-user {
   margin-top: -9px;
   margin-bottom: 9px;

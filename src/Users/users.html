@@ -2,23 +2,37 @@
 
 <div class="users" >
   <div layout="column" layout="start center" style="margin:auto">
-    <div layout="row" layout-align="space-between center" class="search">
+    <div layout="row" layout-align="space-between center" class="search" hide-xs>
       <i class="material-icons" style="color: #727272">search</i>
-      <md-input-container>
+      <md-input-container >
         <label></label>
         <input placeholder="Pesquisar por Usuário..." />
       </md-input-container>
     </div>
 
     <div style="margin: auto" >
-      <md-whiteframe class="md-whiteframe-4dp" layout="column" layout-align="space-around center" ng-show="!convidar">
+      <md-whiteframe class="md-whiteframe-4dp" layout="column" layout-align="space-around center" ng-show="!convidar" hide-xs>
         <div   layout="column" layout-align="center center" style="margin-bottom: 18px;">
           <span layout-margin class="md-title">Convidar Usuário</span>
         </div>
 
-        <p>Convide usuários para utilizarem os veículos cadastrados</p>
+        <p>Convide usuários para utilizarem os veículos cadastrados.</p>
 
         <img class="img-add-user" src="images/convidar_usuario.png" />
+
+        <md-button ng-click="convidar = true">Convidar</md-button>
+
+      </md-whiteframe>
+
+      <md-whiteframe class="md-whiteframe-4dp user-card-responsive" layout="column" layout-align="space-around center" ng-show="!convidar" hide-gt-xs>
+        <div   layout="column" layout-align="center center" style="margin-bottom: 18px;">
+          <span layout-margin class="md-title">Convidar Usuário</span>
+        </div>
+
+        <div layout="row" layout-align="space-around center" style="margin-top: -19px;">
+          <img src="images/convidar_usuario.png" />
+          <p >Convide usuários para utilizarem os veículos cadastrados.</p>
+        </div>
 
         <md-button ng-click="convidar = true">Convidar</md-button>
 
@@ -47,7 +61,7 @@
           </md-input-container>
 
           <md-input-container>
-            <label>Sobrenome</label>
+            <label>E-mail</label>
             <input type="email" name="email" ng-model="email" required  />
             <div ng-messages="inviteUserForm.$submitted && inviteUserForm.email.$error" role="alert">
               <div ng-message="required">Digite o email</div>
@@ -61,9 +75,9 @@
         </form>
       </md-whiteframe>
 
-      <div ng-repeat="userInvited in usersInvited" style="margin 8px;">
+      <div ng-repeat="userInvited in usersInvited" style="margin 8px;" >
 
-      <md-whiteframe ng-show="!editUser[$index]" style="background-color: #F7F7F7"  ng-mouseenter="showOptionIcons($index)" ng-mouseleave="hideOptionIcons($index)" class="md-whiteframe-4dp" layout="column" layout-align="space-between none" >
+      <md-whiteframe ng-show="!editUser[$index]"  ng-mouseenter="showOptionIcons($index)" ng-mouseleave="hideOptionIcons($index)" class="md-whiteframe-4dp invited-user-card" layout="column" layout-align="space-between none" >
 
         <div layout="row" layout-align="end center" style="margin-top: 16px;" ng-show="showOptionIcons[$index]" >
           <i class="material-icons" style="cursor: pointer" ng-click="editUser[$index] = true">mode_edit</i>
@@ -72,13 +86,13 @@
 
         <div  layout="column" layout-align="center center" ng-style="classIcon[$index]">
           <i class="material-icons" style="font-size: 106px; color: #b6b6b6;">account_circle</i>
-          <span layout-margin class="md-body-2">{{userInvited.name}}</span>
-          <span class="md-caption">{{userInvited.email}}</span>
+          <span layout-margin class="md-title">{{userInvited.name}}</span>
+          <span class="md-body-1">{{userInvited.email}}</span>
         </div>
 
         <div layout="column" layout-align="space-around center" >
-          <div class="md-caption" style="color: #727272;" >Convidado</div>
-          <div class="md-caption" style="color: #727272; margin-top: 15px;" >Criação de Conta Pendente</div>
+          <div class="md-body-1" style="color: #727272;" >Convidado</div>
+          <div class="md-body-1" style="color: #727272; margin-top: 6px;" >Criação de Conta Pendente</div>
         </div>
 
 
@@ -111,7 +125,7 @@
           </md-input-container>
 
           <md-input-container>
-            <label>Sobrenome</label>
+            <label>E-mail</label>
             <input type="email" name="email" ng-model="userInvited.email" required  />
             <div ng-messages="editUserForm.$submitted && editUserForm.email.$error" role="alert">
               <div ng-message="required">Digite o email</div>
@@ -136,27 +150,57 @@
 
         <div  layout="column" layout-align="center center" ng-style="classImag[$index]">
           <img layout-margin src="images/foto1.png" />
-          <span layout-margin class="md-body-2">{{userActive.name}}</span>
-          <span class="md-caption">{{userActive.email}}</span>
+          <span layout-margin class="md-title">{{userActive.name}}</span>
+          <span class="md-body-1">{{userActive.email}}</span>
         </div>
 
         <div layout="column" layout-align="space-between none" >
           <div layout="row" layout-align="start center">
-            <i class="material-icons"  style="color: #727272">smartphone</i>
-            <span  class="md-caption" style="color: #727272; margin-left: 23px;">{{userActive.phone}}</span>
+            <span layout="row" layout-align="end center" style=" cursor: pointer; height: 0px;">
+              <i class="material-icons"  style="color: #727272">smartphone</i>
+                <md-tooltip md-direction="top">Carros Associados</md-tooltip>
+            </span>
+            <span  class="md-body-1" style="color: #727272; margin-left: 15px;">{{userActive.phone}}</span>
           </div>
 
           <div layout="row" layout-align="start center" style=" margin-top: 20px;">
-            <i class="material-icons" style="color: #727272">directions_car</i>
-            <div layout="column">
-              <span class="md-caption" style="color: #727272; margin-left: 23px;">{{userActive.car_name}}</span>
+            <!-- <div class="number-cars-associate" ng-show="userActive.car.length > 1">{{ userActive.car.length}}</div> -->
+            <!-- <i class="material-icons" style="color: #727272;" ng-style="userActive.car.length > 1 ?  {'margin-left' : '-13px' } : {'margin-left' : '0' }">directions_car</i> -->
+            <span layout="row" layout-align="end center" style=" cursor: pointer; height: 0px;">
+              <i class="material-icons" style="color: #727272;">directions_car</i>
+                <md-tooltip md-direction="top">Carros Associados</md-tooltip>
+            </span>
+            <div layout="row" layout-align="space-between center">
+              <span class="md-body-1" style="color: #727272; margin-left: 15px;">{{userActive.car.length + " Carros"}}</span>
+              <!-- <span class="md-body-1" style="color: #727272;margin-left: 35px;" ng-show="userActive.car.length > 1" >{{" + " + userActive.car.length + " Carros ..." }}</span> -->
+              <div layout="row" layout-align="end center" style=" cursor: pointer; height: 0px; margin-left : 120px" >
+                  <i class="material-icons " >visibility</i>
+                  <md-tooltip md-direction="top">Mostrar Carros</md-tooltip>
+              </div>
             </div>
           </div>
-          <div layout="row" layout-align="start start">
-            <div flex="20"></div>
-            <div flex="80"  layout="row" layout-align="start center">
-              <span class="md-caption ticket">{{userActive.maker}}</span>
-              <span ng-if="userActive.owner" class="md-caption own-ticket">Proprietário</span>
+          <!-- <div layout="row" layout-align="start start">
+            <div flex="15"></div>
+            <div flex="85"  layout="row" layout-align="start center">
+              <span class="md-caption ticket" >{{userActive.car[0].maker}}</span>
+              <span ng-show="userActive.car[0].owner && userActive.car.length == 1" class="md-caption own-ticket">Proprietário</span>
+            </div>
+          </div> -->
+
+          <div layout="row" layout-align="start center" style=" margin-top: 20px;">
+            <!-- <div class="number-cars-associate" ng-show="userActive.car.length > 1">{{ userActive.car.length}}</div> -->
+            <!-- <i class="material-icons" style="color: #727272;" ng-style="userActive.car.length > 1 ?  {'margin-left' : '-13px' } : {'margin-left' : '0' }">directions_car</i> -->
+            <span layout="row" layout-align="end center" style=" cursor: pointer; height: 0px;">
+              <i class="material-icons" style="color: #727272;">vpn_key</i>
+                <md-tooltip md-direction="top">Proprietário</md-tooltip>
+            </span>
+            <div layout="row" layout-align="space-between center">
+              <span class="md-body-1" style="color: #727272; margin-left: 15px;">{{userActive.car.length + " Carros"}}</span>
+              <!-- <span class="md-body-1" style="color: #727272;margin-left: 35px;" ng-show="userActive.car.length > 1" >{{" + " + userActive.car.length + " Carros ..." }}</span> -->
+              <div layout="row" layout-align="end center" style=" cursor: pointer; height: 0px; margin-left : 120px">
+                  <i class="material-icons " >visibility</i>
+                  <md-tooltip md-direction="top">Mostrar Carros</md-tooltip>
+              </div>
             </div>
           </div>
 
