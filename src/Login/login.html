@@ -18,7 +18,7 @@
 
     </md-whiteframe>
 
-    <p ng-click="pagAddUser()" class="md-caption">
+    <p ng-click="pagAddUser()" class="md-body-1">
       <span>Não possui conta?&nbsp&nbsp</span><span class="md-link">Criar Conta</span>
     </p>
 
@@ -31,8 +31,8 @@
 
       <div   layout="column" layout-align="center center">
         <img layout-margin src="images/foto1.png" />
-        <span layout-margin class="md-body-2">{{$root.user.name + ' ' + $root.user.lastName}}</span>
-        <span class="md-caption">{{$root.user.email}}</span>
+        <span layout-margin class="md-title">{{$root.user.name + ' ' + $root.user.lastName}}</span>
+        <span class="md-body-1">{{$root.user.email}}</span>
       </div>
 
       <span  layout="row" layout-align="end end">
@@ -57,13 +57,13 @@
 
       <md-button ng-click="loginForm2.$valid && login()"  type="submit" >Entrar</md-button>
 
-      <p layout="row" layout-align="end end" class="md-caption md-link" ng-click="pagForgotPass()">
+      <p layout="row" layout-align="end end" class="md-body-1 md-link" ng-click="pagForgotPass()">
         Esqueci minha senha
       </p>
 
     </md-whiteframe>
 
-    <p  class="md-caption">
-      <span class="md-link" ng-click="backToLogin()">Entrar como outro usuário</span>
+    <p  class="md-body-1">
+      <span class="md-link" ng-click="backToLogin()">Entrar com outro usuário</span>
     </p>
 </form>

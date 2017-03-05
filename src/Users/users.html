@@ -80,8 +80,16 @@
       <md-whiteframe ng-show="!editUser[$index]"  ng-mouseenter="showOptionIcons($index)" ng-mouseleave="hideOptionIcons($index)" class="md-whiteframe-4dp invited-user-card" layout="column" layout-align="space-between none" >
 
         <div layout="row" layout-align="end center" style="margin-top: 16px;" ng-show="showOptionIcons[$index]" >
+          <span layout="row" layout-align="end center" style=" cursor: pointer;">
           <i class="material-icons" style="cursor: pointer" ng-click="editUser[$index] = true">mode_edit</i>
+              <md-tooltip md-direction="top">Editar</md-tooltip>
+          </span>
+
+          <span layout="row" layout-align="end center" style=" cursor: pointer; ">
           <i class="material-icons" style="cursor: pointer" ng-click="deleteUser(userActive.id)">delete</i>
+              <md-tooltip md-direction="top">Deletar</md-tooltip>
+          </span>
+
         </div>
 
         <div  layout="column" layout-align="center center" ng-style="classIcon[$index]">
@@ -144,8 +152,16 @@
       <md-whiteframe ng-repeat="userActive in usersActivate" ng-mouseenter="showOptionImage($index)" ng-mouseleave="hideOptionImage($index)" class="md-whiteframe-4dp" layout="column" layout-align="space-between none" >
 
         <div layout="row" layout-align="end center" style="margin-top: 16px;" ng-show="showOptionImage[$index]" >
-          <i class="material-icons" style="cursor: pointer" ng-click="edit(userActive.id)">mode_edit</i>
+          <span layout="row" layout-align="end center" style=" cursor: pointer;">
+            <i class="material-icons" style="cursor: pointer" ng-click="edit(userActive.id)">mode_edit</i>
+              <md-tooltip md-direction="top">Editar</md-tooltip>
+          </span>
+
+          <span layout="row" layout-align="end center" style=" cursor: pointer;">
           <i class="material-icons" style="cursor: pointer" ng-click="deleteUser(userActive.id)">delete</i>
+              <md-tooltip md-direction="top">Deletar</md-tooltip>
+          </span>
+
         </div>
 
         <div  layout="column" layout-align="center center" ng-style="classImag[$index]">
@@ -158,7 +174,7 @@
           <div layout="row" layout-align="start center">
             <span layout="row" layout-align="end center" style=" cursor: pointer; height: 0px;">
               <i class="material-icons"  style="color: #727272">smartphone</i>
-                <md-tooltip md-direction="top">Carros Associados</md-tooltip>
+                <md-tooltip md-direction="top">Celular</md-tooltip>
             </span>
             <span  class="md-body-1" style="color: #727272; margin-left: 15px;">{{userActive.phone}}</span>
           </div>
