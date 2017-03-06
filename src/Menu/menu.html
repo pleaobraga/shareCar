@@ -1,5 +1,5 @@
 <div class="menu-top" layout="column" ng-controller="menuCtrl" ng-init="findLocateAba()">
-  <div layout="row">
+  <div layout="row" hide-xs>
     <div flex-gt-sm="15" flex-sm="20" ></div>
     <div layout="row" layout-align="start start" flex-gt-sm="85" flex-sm="80" class="center-menu">
       <div layout="row" layout-align="space-around" class="botao-menu">
@@ -9,7 +9,7 @@
       </div>
     </div>
   </div>
-  <div layout="row">
+  <div layout="row" hide-xs>
     <div flex-gt-sm="15" flex-sm="20" ></div>
     <div layout="row" layout-align="end center" class="group-user-menu" flex-gt-sm="85" flex-sm="80" class="center-menu">
       <i  class="material-icons" >notifications_none</i>
@@ -22,19 +22,21 @@
     </div>
   </div>
   <div layout="row" class="offset-title-menu-top">
-    <div flex-gt-sm="15" flex-sm="20" layout="row" layout-align="center center">
-      <ng-include src="'html/marcaMenu.html'"></ng-include>
+    <div  flex-gt-sm="15" flex-sm="20" flex-xs="20" layout="row" layout-align="center center">
+      <ng-include hide-xs src="'html/marcaMenu.html'"></ng-include>
+      <i hide-gt-xs  class="material-icons" style="color: white">reorder</i>
      </div>
      <div layout="row" layout-align="start center" flex-gt-sm="85" flex-sm="80" class="center-menu">
-       <span class="md-display-1 title-menu-top" style="color: white">{{abaTranslate}}</span>
+       <span hide-xs class="md-display-1 title-menu-top" style="color: white">{{abaTranslate}}</span>
+       <span hide-gt-xs class="md-headline title-menu-top" style="color: white">{{abaTranslate}}</span>
      </div>
   </div>
-  <div layout="row"  style="margin-top: -10px" ng-if="verifyaba('vehicles')">
-    <div flex-gt-sm="15" flex-sm="20"></div>
-     <div layout="row" layout-align="start center" flex-gt-sm="85" flex-sm="80">
-       <md-nav-bar nav-bar-aria-label="navigation links" md-selected-nav-item="currentNavItem">
-         <md-nav-item md-nav-click="goToSubMenuVehicles('garage')" name='garage' >GARAGEM</md-nav-item>
-         <md-nav-item md-nav-click="goToSubMenuVehicles('myReserves')" name="myReserves" >MINHAS RESERVAS</md-nav-item>
+  <div layout="row" class="margin-title" ng-if="verifyaba('vehicles')">
+    <div hide-xs flex-gt-sm="15" flex-sm="20"></div>
+     <div layout="row" layout-align="start center" flex-gt-sm="85" flex-sm="80" flex-xs="100">
+       <md-nav-bar flex-xs="100" nav-bar-aria-label="navigation links" md-selected-nav-item="currentNavItem">
+         <md-nav-item flex-xs="40" md-nav-click="goToSubMenuVehicles('garage')" name='garage' >GARAGEM</md-nav-item>
+         <md-nav-item flex-xs="60" md-nav-click="goToSubMenuVehicles('myReserves')" name="myReserves" >MINHAS RESERVAS</md-nav-item>
        </md-nav-bar>
      </div>
   </div>

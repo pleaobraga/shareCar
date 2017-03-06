@@ -37,6 +37,10 @@ md-input-container:only-of-type:first-of-type {
   height: 452px !important;
 }
 
+.margin-title{
+  margin-top: -10px;
+}
+
 .card-add-vehicle{
   height: 285px !important;
   padding: 11px 28px !important;
@@ -375,5 +379,20 @@ form[name = "addUserForm"]  p {
     margin-top: 16px;
   }
 
+  .offset-title-menu-top{
+    margin-top: 0px;
+  }
+
+  .margin-title{
+    margin-top: 6px;
+  }
+
+  .md-nav-item:first-of-type{
+    margin-left: 0;
+  }
+
+  md-nav-bar button span {
+    font-size: 12px;
+  }
 
 }
