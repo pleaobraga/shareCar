@@ -1,4 +1,4 @@
-shareCar.controller("usersCtrl", ['$scope', function($scope){
+shareCar.controller("usersCtrl", ['$scope','$mdMedia', function($scope, $mdMedia){
 
   $scope.users = [1,2,3];
   $scope.showOptionIcons = [];
@@ -19,6 +19,7 @@ shareCar.controller("usersCtrl", ['$scope', function($scope){
     //userService
   };
 
+
   $scope.showOptionIcons = function(index)
   {
     $scope.showOptionIcons[index] = true;
@@ -34,7 +35,10 @@ shareCar.controller("usersCtrl", ['$scope', function($scope){
   $scope.showOptionImage = function(index)
   {
     $scope.showOptionImage[index] = true;
-    $scope.classImag[index] = {'margin-top': '-58px'};
+    $scope.classImag[index] = {'margin-top': '-78px'};
+    if($mdMedia('max-width: 600px')){
+      $scope.classImag[index] = {'margin-top': '-58px'};
+    };
   };
 
   $scope.hideOptionImage = function(index)

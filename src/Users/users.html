@@ -180,41 +180,14 @@
           </div>
 
           <div layout="row" layout-align="start center" style=" margin-top: 20px;">
-            <!-- <div class="number-cars-associate" ng-show="userActive.car.length > 1">{{ userActive.car.length}}</div> -->
-            <!-- <i class="material-icons" style="color: #727272;" ng-style="userActive.car.length > 1 ?  {'margin-left' : '-13px' } : {'margin-left' : '0' }">directions_car</i> -->
             <span layout="row" layout-align="end center" style=" cursor: pointer; height: 0px;">
               <i class="material-icons" style="color: #727272;">directions_car</i>
                 <md-tooltip md-direction="top">Carros Associados</md-tooltip>
             </span>
-            <div layout="row" layout-align="space-between center">
+            <div layout="row" layout-align="space-between center" layout-fill>
               <span class="md-body-1" style="color: #727272; margin-left: 15px;">{{userActive.car.length + " Carros"}}</span>
-              <!-- <span class="md-body-1" style="color: #727272;margin-left: 35px;" ng-show="userActive.car.length > 1" >{{" + " + userActive.car.length + " Carros ..." }}</span> -->
-              <div layout="row" layout-align="end center" style=" cursor: pointer; height: 0px; margin-left : 120px" >
-                  <i class="material-icons " >visibility</i>
-                  <md-tooltip md-direction="top">Mostrar Carros</md-tooltip>
-              </div>
-            </div>
-          </div>
-          <!-- <div layout="row" layout-align="start start">
-            <div flex="15"></div>
-            <div flex="85"  layout="row" layout-align="start center">
-              <span class="md-caption ticket" >{{userActive.car[0].maker}}</span>
-              <span ng-show="userActive.car[0].owner && userActive.car.length == 1" class="md-caption own-ticket">Proprietário</span>
-            </div>
-          </div> -->
-
-          <div layout="row" layout-align="start center" style=" margin-top: 20px;">
-            <!-- <div class="number-cars-associate" ng-show="userActive.car.length > 1">{{ userActive.car.length}}</div> -->
-            <!-- <i class="material-icons" style="color: #727272;" ng-style="userActive.car.length > 1 ?  {'margin-left' : '-13px' } : {'margin-left' : '0' }">directions_car</i> -->
-            <span layout="row" layout-align="end center" style=" cursor: pointer; height: 0px;">
-              <i class="material-icons" style="color: #727272;">vpn_key</i>
-                <md-tooltip md-direction="top">Proprietário</md-tooltip>
-            </span>
-            <div layout="row" layout-align="space-between center">
-              <span class="md-body-1" style="color: #727272; margin-left: 15px;">{{userActive.car.length + " Carros"}}</span>
-              <!-- <span class="md-body-1" style="color: #727272;margin-left: 35px;" ng-show="userActive.car.length > 1" >{{" + " + userActive.car.length + " Carros ..." }}</span> -->
-              <div layout="row" layout-align="end center" style=" cursor: pointer; height: 0px; margin-left : 120px">
-                  <i class="material-icons " >visibility</i>
+              <div layout="row" layout-align="end center" style=" cursor: pointer; height: 0px;" >
+                  <i class="material-icons" style="color: #727272" >chevron_right</i>
                   <md-tooltip md-direction="top">Mostrar Carros</md-tooltip>
               </div>
             </div>
