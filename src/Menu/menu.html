@@ -1,11 +1,11 @@
-<div class="menu-top" layout="column" ng-controller="menuCtrl" ng-init="findLocateAba()">
+<div class="menu-top" layout="column" ng-controller="menuCtrl" ng-init="findLocateAba()" ng-style="verifyaba('vehicles') ? {} : {'padding-bottom':'8px'}">
   <div layout="row" hide-xs>
     <div flex-gt-sm="15" flex-sm="20" ></div>
     <div layout="row" layout-align="start start" flex-gt-sm="85" flex-sm="80" class="center-menu">
       <div layout="row" layout-align="space-around" class="botao-menu">
-        <a  ng-click="goToPage('dashBoard')" ng-style="verifyaba('dashBoard') ? {'color':'white'} : {}">DASHBOARD</a>
-        <a  ng-click="goToPage('vehicles')" ng-style="verifyaba('vehicles') ? {'color':'white'} : {}">VEÍCULOS</a>
-        <a  ng-click="goToPage('users')" ng-style="verifyaba('users') ? {'color':'white'} : {}">USUÁRIOS</a>
+        <a  ng-click="goToPage('dashBoard')" ng-style="verifyaba('dashBoard') ? {'color':'white'} : {}">DashBoard</a>
+        <a  ng-click="goToPage('vehicles')" ng-style="verifyaba('vehicles') ? {'color':'white'} : {}">Veículos</a>
+        <a  ng-click="goToPage('users')" ng-style="verifyaba('users') ? {'color':'white'} : {}">Usuários</a>
       </div>
     </div>
   </div>
@@ -21,10 +21,10 @@
       <i  class="material-icons">keyboard_arrow_down</i>
     </div>
   </div>
-  <div layout="row" class="offset-title-menu-top">
+  <div layout="row" class="offset-title-menu-top" >
     <div  flex-gt-sm="15" flex-sm="20" flex-xs="20" layout="row" layout-align="center center">
       <ng-include hide-xs src="'html/marcaMenu.html'"></ng-include>
-      <i hide-gt-xs  class="material-icons" style="color: white">reorder</i>
+      <i hide-gt-xs ng-click="toggleLeft()"  class="material-icons" style="color: white; cursor: pointer">reorder</i>
      </div>
      <div layout="row" layout-align="start center" flex-gt-sm="85" flex-sm="80" class="center-menu">
        <span hide-xs class="md-display-1 title-menu-top" style="color: white">{{abaTranslate}}</span>
@@ -35,9 +35,57 @@
     <div hide-xs flex-gt-sm="15" flex-sm="20"></div>
      <div layout="row" layout-align="start center" flex-gt-sm="85" flex-sm="80" flex-xs="100">
        <md-nav-bar flex-xs="100" nav-bar-aria-label="navigation links" md-selected-nav-item="currentNavItem">
-         <md-nav-item flex-xs="40" md-nav-click="goToSubMenuVehicles('garage')" name='garage' >GARAGEM</md-nav-item>
-         <md-nav-item flex-xs="60" md-nav-click="goToSubMenuVehicles('myReserves')" name="myReserves" >MINHAS RESERVAS</md-nav-item>
+         <md-nav-item flex-xs="50" md-nav-click="goToSubMenuVehicles('garage')" name='garage' >GARAGEM</md-nav-item>
+         <md-nav-item flex-xs="50" md-nav-click="goToSubMenuVehicles('myReserves')" name="myReserves" >MINHAS RESERVAS</md-nav-item>
        </md-nav-bar>
      </div>
   </div>
+  <section>
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4" md-swipe-left="close('left')">
+
+      <div layout="column">
+        <div layout="row" layout-align="space-between start">
+          <ng-include src="'html/marcaMenu.html'"></ng-include>
+          <i class="material-icons" style="color: white; cursor: pointer">settings</i>
+        </div>
+        <div  layout="column" layout-align="center center">
+          <img layout-margin style="width: 64px;" src="images/foto1.png" />
+          <span class="md-subhead" style="color: white; ">Grupo das Panteras</span>
+          <span class="md-body-1" style="color: #727272">Antonio Leão Braga</span>
+        </div>
+      </div>
+
+      <md-divider style="margin: 27px 0;"></md-divider>
+
+      <div layout="column" layout-align="space-around none">
+        <div layout="row" layout-align="start center" style="margin: 10px 0; cursor: pointer" ng-click="goToPage('dashBoard')">
+          <i class="material-icons" style="color: white; cursor: pointer">dashboard</i>
+          <span class="md-subhead" style="color: #727272; margin-left: 23px;">Dashboard</span>
+        </div>
+        <div layout="row" layout-align="start center"style="margin: 10px 0; cursor: pointer" ng-click="goToPage('vehicles')">
+          <i class="material-icons" style="color: white; cursor: pointer">directions_car</i>
+          <span class="md-subhead" style="color: #727272; margin-left: 23px;">Veículos</span>
+        </div>
+        <div layout="row" layout-align="start center" style="margin: 10px 0;" style="margin: 10px 0; cursor: pointer" ng-click="goToPage('users')">
+          <i class="material-icons" style="color: white; cursor: pointer">group</i>
+          <span class="md-subhead" style="color: #727272; margin-left: 23px;">Usuários</span>
+        </div>
+        <div layout="row" layout-align="start center" style="margin: 10px 0; cursor: pointer" >
+          <i class="material-icons" style="color: white; cursor: pointer">notifications_none</i>
+          <span class="md-subhead" style="color: #727272; margin-left: 23px;">Notificação</span>
+        </div>
+      </div>
+
+      <md-divider></md-divider>
+
+
+      <div layout="row" layout-align="start center" sstyle="margin: 10px 0; cursor: pointer" ng-click="goToPage('login')">
+        <i class="material-icons" style="color: white; cursor: pointer">exit_to_app</i>
+        <span class="md-subhead" style="color: #727272; margin-left: 23px;">Sair</span>
+      </div>
+
+
+    </md-sidenav>
+  </section>
+
 </div>

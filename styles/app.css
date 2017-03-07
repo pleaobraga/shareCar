@@ -7,6 +7,19 @@ md-input-container {
   width: 100%;
 }
 
+md-sidenav {
+  position: fixed;
+  background-color: #1E2431;
+  padding: 19px 14px;
+}
+
+.menu-top {
+  background-color: #1E2431;
+  width: 100;
+  padding-top: 10px;
+}
+
+
 
 .img-add-vehicle {
   margin-top: -9px;
@@ -27,7 +40,7 @@ md-input-container:only-of-type:first-of-type {
 }
 
 
-.users,  .vehicle{
+.users, .vehicle{
     /*margin: 10px 10%;*/
     margin: 10px auto;
     width: 1005px;
@@ -44,6 +57,7 @@ md-input-container:only-of-type:first-of-type {
 .card-add-vehicle{
   height: 285px !important;
   padding: 11px 28px !important;
+  margin-top: 135px !important;
 }
 
 .card-cadastrate-vehicle md-input-container {
@@ -95,7 +109,7 @@ md-input-container:only-of-type:first-of-type {
 .user-card-responsive{
   height: 213px !important;
   padding: 8px 22px !important;
-  margin-top: 17px;
+  margin-top: 77px !important;
 
 }
 
@@ -136,13 +150,6 @@ md-input-container:only-of-type:first-of-type {
 
 .group-user-menu{
   padding-right: 4%;
-}
-
-.menu-top {
-  /*background-color: #ed4b4b;*/
-  background-color: #1E2431;
-  width: 100;
-  padding: 10px 0;
 }
 
 .offset-title-menu-top {
@@ -377,6 +384,7 @@ form[name = "addUserForm"]  p {
     margin-left: 8px;
     width: 302px !important;
     margin-top: 16px;
+    margin-bottom: 0;
   }
 
   .offset-title-menu-top{
@@ -393,6 +401,12 @@ form[name = "addUserForm"]  p {
 
   md-nav-bar button span {
     font-size: 12px;
+  }
+
+  .menu-top{
+    position: fixed;
+    width: 100%;
+    z-index: 200;
   }
 
 }
